@@ -1,5 +1,6 @@
 import { NavigationBar, FloatingCalendarButton } from "@/features/navigation";
 import { HeroWithIntro } from "@/features/hero";
+import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 
 export default function Home() {
   return (
@@ -13,21 +14,8 @@ export default function Home() {
       {/* Hero Section with Animation */}
       <HeroWithIntro />
 
-      {/* Placeholder sections for navigation testing */}
-      <section
-        id="about"
-        className="min-h-screen bg-white flex items-center justify-center"
-      >
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            About DevFest
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Learn more about the DevFest community and our mission to bring
-            developers together.
-          </p>
-        </div>
-      </section>
+      {/* About Section with Animated Doodles */}
+      <SimpleAboutSection />
 
       <section
         id="speakers"

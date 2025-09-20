@@ -17,12 +17,15 @@ const nextConfig: NextConfig = {
       // Adicione aqui se usar imagens de domínios externos
     ],
     
-    // Manter otimização habilitada para compressão inteligente
+    // Desabilitar otimização para SVGs para evitar erros
     unoptimized: false,
     
     // Configurações adicionais para Sharp (motor de processamento)
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    
+    // Qualidades configuradas para evitar warning
+    qualities: [75, 90],
   },
 };
 

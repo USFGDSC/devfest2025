@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge, Button, Hashtag } from "@/ui";
+import { Badge, Button } from "@/ui";
 import { BraceIcon, GoogleIcon } from "@/ui/svgs";
 import { Globe } from "lucide-react";
 import Image from "next/image";
@@ -8,6 +8,7 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section
+      id="hero"
       className="min-h-screen bg-gray-50 relative overflow-hidden"
       style={{
         backgroundImage: "url('/Textures/Paper Fibers.png')",
@@ -86,8 +87,8 @@ export default function HeroSection() {
                 alt="DevFest USF Community Group"
                 fill
                 className="object-contain rounded-2xl"
-                priority
                 quality={90}
+                priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
               />
             </div>

@@ -1,5 +1,5 @@
 import { NavigationBar, FloatingCalendarButton } from "@/features/navigation";
-import { HeroSection } from "@/features/hero";
+import { HeroWithIntro } from "@/features/hero";
 
 export default function Home() {
   return (
@@ -10,8 +10,8 @@ export default function Home() {
       {/* Floating Calendar Button for Mobile */}
       <FloatingCalendarButton />
 
-      {/* Hero Section */}
-      <HeroSection />
+      {/* Hero Section with Animation */}
+      <HeroWithIntro />
 
       {/* Placeholder sections for navigation testing */}
       <section

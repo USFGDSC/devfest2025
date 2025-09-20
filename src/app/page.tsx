@@ -1,8 +1,18 @@
+import { NavigationBar, FloatingCalendarButton } from "@/features/navigation";
+import { HeroWithIntro } from "@/features/hero";
 import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      {/* Navigation */}
+      <NavigationBar />
+
+      {/* Floating Calendar Button for Mobile */}
+      <FloatingCalendarButton />
+
+      {/* Hero Section with Animation */}
+      <HeroWithIntro />
 
       {/* About Section with Animated Doodles */}
       <SimpleAboutSection />

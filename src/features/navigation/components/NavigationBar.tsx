@@ -59,10 +59,11 @@ export default function NavigationBar() {
   const easterEggCountRef = useRef<number>(0);
   const logoRef = useRef<HTMLDivElement>(null);
 
-  // Easter egg function - 1 in 1000 chance (1 in 10 for testing)
+  // Easter egg function - 1 in 1000 chance
+  const CHANCE = 0.001; // 0.1%
   const triggerEasterEgg = (): boolean => {
     transitionCountRef.current += 1;
-    const isTriggered = Math.random() < 0.1; // Testing with higher chance
+    const isTriggered = Math.random() < CHANCE;
     if (isTriggered) {
       easterEggCountRef.current += 1;
     }
@@ -458,12 +459,15 @@ export default function NavigationBar() {
                 <CalendarIcon size={18} />
                 <span>Add to Calendar</span>
               </button>
-              <Button
-                variant="primary"
-                className="px-6 py-2 text-sm font-bold bg-blue-600 hover:bg-blue-700 rounded-full"
+              <button
+                onClick={() => {
+                  // TODO: Implementar navegação para página de registro
+                  console.log("Redirect to registration page");
+                }}
+                className="flex items-center space-x-2 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 border border-blue-600 hover:border-blue-700 rounded-full transition-all duration-200 font-product-sans font-medium"
               >
-                Register Now
-              </Button>
+                <span>Register Now</span>
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -500,9 +504,15 @@ export default function NavigationBar() {
                       <CalendarIcon size={18} />
                       <span>Add to Calendar</span>
                     </button>
-                    <Button variant="primary" className="w-full text-sm">
-                      Register Now
-                    </Button>
+                    <button
+                      onClick={() => {
+                        // TODO: Implementar navegação para página de registro
+                        console.log("Redirect to registration page");
+                      }}
+                      className="flex items-center space-x-2 w-full px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 border border-blue-600 hover:border-blue-700 rounded-full transition-all duration-200 font-product-sans font-medium justify-center"
+                    >
+                      <span>Register Now</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -546,11 +556,34 @@ export default function NavigationBar() {
             <div className="p-3">
               {/* Header */}
               <div className="text-center mb-2">
-                <h3 className="text-sm font-bold text-gray-900">Transitions</h3>
+                <h3 className="text-sm font-bold text-gray-900">
+                  Logo Changes
+                </h3>
                 <p className="text-2xl font-bold text-purple-600">
                   {transitionCountRef.current}
                 </p>
               </div>
+
+              {/* Easter Egg Counter - Only visible when triggered */}
+              {easterEggCountRef.current > 0 && (
+                <div className="text-center mb-2 border-t border-gray-200 pt-2">
+                  <h3 className="text-sm font-bold text-yellow-600">
+                    Golden Triggers
+                  </h3>
+                  <p className="text-2xl font-bold text-yellow-600">
+                    {easterEggCountRef.current}
+                  </p>
+                  <div className="text-center mt-2">
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      Tag us on Instagram with
+                      <br />
+                      <span className="font-bold text-purple-600">
+                        #goldeneasteregg
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              )}
 
               {/* Message */}
               <div className="text-center">

@@ -1,6 +1,7 @@
 import { NavigationBar, FloatingCalendarButton } from "@/features/navigation";
 import { HeroWithIntro } from "@/features/hero";
 import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
+import { GallerySection } from "@/features/gallery";
 import { TracksSection } from "@/features/tracks";
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
 
       {/* Tracks Section */}
       <TracksSection />
+
+      {/* Gallery Section */}
+      <GallerySection />
 
       <section
         id="speakers"

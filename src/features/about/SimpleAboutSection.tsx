@@ -25,6 +25,7 @@ export function SimpleAboutSection() {
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
   const [doodlePositions, setDoodlePositions] = useState<DoodlePosition[]>([]);
   const [mounted, setMounted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   // Initialize doodle positions
   useEffect(() => {
@@ -100,9 +101,12 @@ export function SimpleAboutSection() {
     return () => clearInterval(interval);
   }, [doodlePositions.length, containerSize]);
 
-  // Handle container resize
+  // Handle container resize and screen size detection
   useEffect(() => {
     const handleResize = () => {
+      // Check if screen is desktop (lg breakpoint is 1024px)
+      setIsDesktop(window.innerWidth >= 1024);
+
       const container = document.getElementById("about");
       if (container) {
         const rect = container.getBoundingClientRect();
@@ -139,8 +143,9 @@ export function SimpleAboutSection() {
         outline: "2.5px solid #000000",
       }}
     >
-      {/* Background animated doodles */}
+      {/* Background animated doodles - Only on desktop */}
       {mounted &&
+        isDesktop &&
         doodlePositions.map((pos, index) => {
           const DoodleComponent = doodleComponents[index];
           return (
@@ -165,8 +170,14 @@ export function SimpleAboutSection() {
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 py-8">
         {/* Title */}
         <h1
-          className={`text-5xl md:text-6xl font-bold text-white font-product-sans mb-6 text-center transition-all duration-1000 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12"
+          className={`text-5xl md:text-6xl font-bold text-white font-product-sans mb-6 text-center ${
+            isDesktop
+              ? `transition-all duration-1000 ${
+                  mounted
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 -translate-y-12"
+                }`
+              : "opacity-100"
           }`}
         >
           About Us
@@ -174,8 +185,14 @@ export function SimpleAboutSection() {
 
         {/* Content Text */}
         <div
-          className={`max-w-4xl mx-auto transition-all duration-1000 delay-300 ${
-            mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+          className={`max-w-4xl mx-auto ${
+            isDesktop
+              ? `transition-all duration-1000 delay-300 ${
+                  mounted
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-12"
+                }`
+              : "opacity-100"
           }`}
         >
           <p className="text-lg md:text-xl text-white leading-relaxed text-center font-product-sans">
@@ -192,18 +209,26 @@ export function SimpleAboutSection() {
 
         {/* Decorative elements */}
         <div
-          className={`mt-6 flex justify-center space-x-6 transition-all duration-1000 delay-600 ${
-            mounted ? "opacity-100 scale-100" : "opacity-0 scale-75"
+          className={`mt-6 flex justify-center space-x-6 ${
+            isDesktop
+              ? `transition-all duration-1000 delay-600 ${
+                  mounted ? "opacity-100 scale-100" : "opacity-0 scale-75"
+                }`
+              : "opacity-100"
           }`}
         >
           {doodleComponents.slice(0, 3).map((DoodleComponent, index) => (
             <div
               key={index}
-              className="w-12 h-12 animate-bounce"
-              style={{
-                animationDelay: `${index * 0.2}s`,
-                animationDuration: `${3 + index * 0.5}s`,
-              }}
+              className={`w-12 h-12 ${isDesktop ? "animate-bounce" : ""}`}
+              style={
+                isDesktop
+                  ? {
+                      animationDelay: `${index * 0.2}s`,
+                      animationDuration: `${3 + index * 0.5}s`,
+                    }
+                  : {}
+              }
             >
               <DoodleComponent className="w-full h-full text-white opacity-60" />
             </div>

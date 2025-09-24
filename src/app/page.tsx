@@ -2,6 +2,7 @@ import { NavigationBar, FloatingCalendarButton } from "@/features/navigation";
 import { HeroWithIntro } from "@/features/hero";
 import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 import { GallerySection } from "@/features/gallery";
+import { TracksSection } from "@/features/tracks";
 
 export default function Home() {
   return (
@@ -17,6 +18,9 @@ export default function Home() {
 
       {/* About Section with Animated Doodles */}
       <SimpleAboutSection />
+
+      {/* Tracks Section */}
+      <TracksSection />
 
       {/* Gallery Section */}
       <GallerySection />

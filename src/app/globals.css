@@ -424,4 +424,65 @@
   .animate-popup-enter {
     animation: popup-enter 0.15s ease-out forwards;
   }
+
+  /* Track Cards Floating Animations */
+  @keyframes float-expert {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-6px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-4px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-8px) rotate(-1deg);
+    }
+  }
+
+  @keyframes float-entrepreneurship {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    30% {
+      transform: translateY(-5px) rotate(-1deg);
+    }
+    60% {
+      transform: translateY(-7px) rotate(1deg);
+    }
+    90% {
+      transform: translateY(-3px) rotate(0deg);
+    }
+  }
+
+  @keyframes float-spotlight {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    20% {
+      transform: translateY(-4px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-8px) rotate(-1deg);
+    }
+    80% {
+      transform: translateY(-5px) rotate(0deg);
+    }
+  }
+
+  @keyframes float-workshop {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    40% {
+      transform: translateY(-6px) rotate(-1deg);
+    }
+    70% {
+      transform: translateY(-4px) rotate(1deg);
+    }
+    85% {
+      transform: translateY(-7px) rotate(0deg);
+    }
+  }
 }

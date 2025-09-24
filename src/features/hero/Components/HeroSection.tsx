@@ -15,7 +15,6 @@ export default function HeroSection() {
         backgroundSize: "auto",
         backgroundPosition: "center",
         backgroundRepeat: "repeat",
-        backgroundAttachment: "fixed",
       }}
     >
       {/* Main content */}

@@ -103,7 +103,16 @@ export function MobileMenu({ className = "" }: MobileMenuProps) {
                   </button>
                 ))}
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-800">
-                  <Button variant="primary" className="w-full">
+                  <Button
+                    variant="primary"
+                    className="w-full"
+                    onClick={() => {
+                      window.open(
+                        "https://bullsconnect.usf.edu/gdsc/rsvp_boot?id=1984399",
+                        "_blank"
+                      );
+                    }}
+                  >
                     Register Now
                   </Button>
                 </div>

@@ -461,8 +461,10 @@ export default function NavigationBar() {
               </button>
               <button
                 onClick={() => {
-                  // TODO: Implementar navegação para página de registro
-                  console.log("Redirect to registration page");
+                  window.open(
+                    "https://bullsconnect.usf.edu/gdsc/rsvp_boot?id=1984399",
+                    "_blank"
+                  );
                 }}
                 className="flex items-center space-x-2 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 border border-blue-600 hover:border-blue-700 rounded-full transition-all duration-200 font-product-sans font-medium"
               >
@@ -506,8 +508,10 @@ export default function NavigationBar() {
                     </button>
                     <button
                       onClick={() => {
-                        // TODO: Implementar navegação para página de registro
-                        console.log("Redirect to registration page");
+                        window.open(
+                          "https://bullsconnect.usf.edu/gdsc/rsvp_boot?id=1984399",
+                          "_blank"
+                        );
                       }}
                       className="flex items-center space-x-2 w-full px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 border border-blue-600 hover:border-blue-700 rounded-full transition-all duration-200 font-product-sans font-medium justify-center"
                     >

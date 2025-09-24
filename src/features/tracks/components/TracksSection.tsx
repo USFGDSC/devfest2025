@@ -86,8 +86,33 @@ export function TracksSection() {
         </div>
 
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Track Cards Grid */}
-          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-sm sm:max-w-lg mx-auto lg:mx-0 lg:order-1">
+          {/* Mobile: Horizontal Pills */}
+          <div className="lg:hidden w-full overflow-x-auto">
+            <div
+              className="flex gap-3 px-4 pb-2"
+              style={{ minWidth: "max-content" }}
+            >
+              {tracks.map((track) => (
+                <button
+                  key={track.id}
+                  onClick={() => setSelectedTrack(track.id)}
+                  className="px-6 py-3 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm whitespace-nowrap transition-all duration-200"
+                  style={{
+                    backgroundColor:
+                      selectedTrack === track.id
+                        ? track.selectedFill
+                        : track.idleFill,
+                    color: selectedTrack === track.id ? "white" : "#333333",
+                  }}
+                >
+                  {track.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Track Cards Grid */}
+          <div className="hidden lg:grid grid-cols-2 gap-8 max-w-lg mx-auto lg:mx-0 lg:order-1">
             {tracks.map((track, index) => (
               <TrackCard
                 key={track.id}

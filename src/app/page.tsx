@@ -1,14 +1,87 @@
+import { NavigationBar, FloatingCalendarButton } from "@/features/navigation";
+import { HeroWithIntro } from "@/features/hero";
+import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
+import { GallerySection } from "@/features/gallery";
+import { TracksSection } from "@/features/tracks";
+
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <main className="text-center space-y-8">
-        <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-          DevFest 2025
-        </h1>
-        <p className="text-lg text-gray-600 dark:text-gray-300">
-          Welcome to DevFest! Our Next.js application is running.
-        </p>
-      </main>
+    <div className="min-h-screen">
+      {/* Navigation */}
+      <NavigationBar />
+
+      {/* Floating Calendar Button for Mobile */}
+      <FloatingCalendarButton />
+
+      {/* Hero Section with Animation */}
+      <HeroWithIntro />
+
+      {/* About Section with Animated Doodles */}
+      <SimpleAboutSection />
+
+      {/* Tracks Section */}
+      <TracksSection />
+
+      {/* Gallery Section */}
+      <GallerySection />
+
+      <section
+        id="speakers"
+        className="min-h-screen bg-gray-50 flex items-center justify-center"
+      >
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
+            Amazing Speakers
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Meet the incredible speakers who will be sharing their knowledge and
+            expertise.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="schedule"
+        className="min-h-screen bg-white flex items-center justify-center"
+      >
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
+            Event Schedule
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Check out the full schedule of talks, workshops, and networking
+            sessions.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="sponsors"
+        className="min-h-screen bg-gray-50 flex items-center justify-center"
+      >
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
+            Our Sponsors
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Thank you to our amazing sponsors who make DevFest possible.
+          </p>
+        </div>
+      </section>
+
+      <section
+        id="faq"
+        className="min-h-screen bg-white flex items-center justify-center"
+      >
+        <div className="text-center">
+          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Find answers to common questions about DevFest USF.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

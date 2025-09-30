@@ -1,5 +1,5 @@
 export { default as HeroTitle, DevFestHeroTitle } from './Components/HeroTitle'
-export { default as HeroSection } from './components/HeroSection'
+export { default as HeroSection } from './Components/HeroSection'
 export { default as AnimatedBraces } from './Components/AnimatedBraces'
 export { default as AnimatedHeroIntro } from './Components/AnimatedHeroIntro'
 export { default as HeroWithIntro } from './Components/HeroWithIntro'

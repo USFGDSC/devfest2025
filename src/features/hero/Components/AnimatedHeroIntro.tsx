@@ -17,7 +17,6 @@ interface AnimatedHeroIntroProps {
 }
 
 export default function AnimatedHeroIntro({
-  duration = 5,
   onAnimationComplete,
   autoPlay = true,
   allowSkip = true,
@@ -48,7 +47,9 @@ export default function AnimatedHeroIntro({
     const timers = phases.map(({ phase, delay }) =>
       setTimeout(() => {
         console.log(`Animação entrando na fase: ${phase}`);
-        setCurrentPhase(phase as any);
+        setCurrentPhase(
+          phase as "white" | "approaching" | "closed" | "opening" | "floating"
+        );
         if (phase === "opening") {
           setShowContent(true);
         }

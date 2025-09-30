@@ -6,7 +6,7 @@ export function validateEmail(email: string): boolean {
   return emailRegex.test(email);
 }
 
-export function validateRequired(value: any): boolean {
+export function validateRequired(value: unknown): boolean {
   return value !== null && value !== undefined && value !== '';
 }
 
@@ -15,7 +15,7 @@ export function validateMinLength(value: string, minLength: number): boolean {
 }
 
 // Event validation
-export function validateEventData(data: any): { isValid: boolean; errors: string[] } {
+export function validateEventData(data: { title?: unknown; description?: unknown; date?: unknown }): { isValid: boolean; errors: string[] } {
   const errors: string[] = [];
   
   if (!validateRequired(data.title)) {

@@ -86,17 +86,14 @@ export function TracksSection() {
         </div>
 
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Mobile: Horizontal Pills */}
-          <div className="lg:hidden w-full overflow-x-auto">
-            <div
-              className="flex gap-3 px-4 pb-2"
-              style={{ minWidth: "max-content" }}
-            >
+          {/* Mobile: 2x2 Grid Layout */}
+          <div className="lg:hidden w-full px-4">
+            <div className="grid grid-cols-2 gap-3">
               {tracks.map((track) => (
                 <button
                   key={track.id}
                   onClick={() => setSelectedTrack(track.id)}
-                  className="px-6 py-3 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm whitespace-nowrap transition-all duration-200"
+                  className="px-4 py-3 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm transition-all duration-200"
                   style={{
                     backgroundColor:
                       selectedTrack === track.id

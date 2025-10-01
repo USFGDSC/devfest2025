@@ -42,3 +42,11 @@ next-env.d.ts
 
 *storybook.log
 storybook-static
+
+# Ignore all markdown files except README files
+*.md
+!README.md
+!readme.md
+!Readme.md
+
+

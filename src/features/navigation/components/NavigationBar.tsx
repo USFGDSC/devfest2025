@@ -13,7 +13,7 @@ interface NavigationItem {
 const navigationItems: NavigationItem[] = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Speakers", href: "#speakers" },
+  { label: "Tracks & Speakers", href: "#tracks-speakers" },
   { label: "Schedule", href: "#schedule" },
   { label: "Sponsors", href: "#sponsors" },
   { label: "FAQ", href: "#faq" },
@@ -34,8 +34,8 @@ const sectionLogoMap = {
   about: 1, // Blue
   speakers: 2, // Green
   schedule: 3, // Red
-  sponsors: 3, // Red (same as schedule)
-  faq: 3, // Red (same as schedule)
+  sponsors: 2, // Red (same as schedule)
+  faq: 1, // Red (same as schedule)
 } as const;
 
 export default function NavigationBar() {
@@ -280,7 +280,7 @@ export default function NavigationBar() {
 
     // Observe all sections
     const sections = document.querySelectorAll(
-      "#hero, #about, #speakers, #schedule, #sponsors, #faq"
+      "#hero, #about, #tracks-speakers, #schedule, #sponsors, #faq"
     );
     sections.forEach((section) => observer.observe(section));
 

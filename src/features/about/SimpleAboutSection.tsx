@@ -137,7 +137,7 @@ export function SimpleAboutSection() {
   return (
     <section
       id="about"
-      className="relative h-[70vh] overflow-hidden"
+      className="relative overflow-hidden"
       style={{
         backgroundColor: "#58CAFF",
         outline: "2.5px solid #000000",
@@ -167,10 +167,10 @@ export function SimpleAboutSection() {
         })}
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 py-8">
+      <div className="relative z-10 flex flex-col items-center px-4 sm:px-8 py-8 sm:py-12">
         {/* Title */}
         <h1
-          className={`text-5xl md:text-6xl font-bold text-white font-product-sans mb-6 text-center ${
+          className={`text-3xl sm:text-5xl md:text-6xl font-bold text-white font-product-sans mb-4 sm:mb-6 text-center ${
             isDesktop
               ? `transition-all duration-1000 ${
                   mounted
@@ -195,7 +195,7 @@ export function SimpleAboutSection() {
               : "opacity-100"
           }`}
         >
-          <p className="text-lg md:text-xl text-white leading-relaxed text-center font-product-sans">
+          <p className="text-sm sm:text-lg md:text-xl text-white leading-relaxed text-center font-product-sans">
             The Google Developer Student Club (GDSC) at the University of South
             Florida is one of the largest and most dynamic student organizations
             on campus. We are part of a global community supported by Google,
@@ -209,7 +209,7 @@ export function SimpleAboutSection() {
 
         {/* Decorative elements */}
         <div
-          className={`mt-6 flex justify-center space-x-6 ${
+          className={`mt-4 sm:mt-6 flex justify-center space-x-4 sm:space-x-6 ${
             isDesktop
               ? `transition-all duration-1000 delay-600 ${
                   mounted ? "opacity-100 scale-100" : "opacity-0 scale-75"
@@ -220,7 +220,9 @@ export function SimpleAboutSection() {
           {doodleComponents.slice(0, 3).map((DoodleComponent, index) => (
             <div
               key={index}
-              className={`w-12 h-12 ${isDesktop ? "animate-bounce" : ""}`}
+              className={`w-8 h-8 sm:w-12 sm:h-12 ${
+                isDesktop ? "animate-bounce" : ""
+              }`}
               style={
                 isDesktop
                   ? {

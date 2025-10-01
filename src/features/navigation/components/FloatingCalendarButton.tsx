@@ -47,7 +47,7 @@ export default function FloatingCalendarButton() {
   return (
     <button
       onClick={generateCalendarLink}
-      className={`lg:hidden fixed bottom-6 right-6 z-40 group
+      className={`lg:hidden fixed bottom-6 right-6 z-30 group
         w-14 h-14 bg-blue-600 hover:bg-blue-700 text-white
         rounded-full shadow-lg hover:shadow-xl
         transition-all duration-300 ease-in-out

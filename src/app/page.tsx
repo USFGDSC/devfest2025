@@ -3,6 +3,8 @@ import { HeroWithIntro } from "@/features/hero";
 import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 import { GallerySection } from "@/features/gallery";
 import { TracksSection } from "@/features/tracks";
+import { LocationSection } from "@/features/location";
+import { FAQSection } from "@/features/faqs";
 
 export default function Home() {
   return (
@@ -22,23 +24,11 @@ export default function Home() {
       {/* Tracks Section */}
       <TracksSection />
 
+      {/* Location Section */}
+      <LocationSection />
+
       {/* Gallery Section */}
       <GallerySection />
-
-      <section
-        id="speakers"
-        className="min-h-screen bg-gray-50 flex items-center justify-center"
-      >
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            Amazing Speakers
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Meet the incredible speakers who will be sharing their knowledge and
-            expertise.
-          </p>
-        </div>
-      </section>
 
       <section
         id="schedule"
@@ -61,27 +51,16 @@ export default function Home() {
       >
         <div className="text-center">
           <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            Our Sponsors
+            Our Partners
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Thank you to our amazing sponsors who make DevFest possible.
+            Thank you to our amazing partners who make DevFest possible.
           </p>
         </div>
       </section>
 
-      <section
-        id="faq"
-        className="min-h-screen bg-white flex items-center justify-center"
-      >
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Find answers to common questions about DevFest USF.
-          </p>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { HeroWithIntro } from "@/features/hero";
 import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 import { GallerySection } from "@/features/gallery";
 import { TracksSection } from "@/features/tracks";
+import { FAQSection } from "@/features/faqs";
 
 export default function Home() {
   return (
@@ -61,7 +62,7 @@ export default function Home() {
       >
         <div className="text-center">
           <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-          Our Partners
+            Our Partners
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Thank you to our amazing partners who make DevFest possible.
@@ -69,19 +70,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="faq"
-        className="min-h-screen bg-white flex items-center justify-center"
-      >
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Find answers to common questions about DevFest USF.
-          </p>
-        </div>
-      </section>
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   );
 }

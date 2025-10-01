@@ -1,0 +1,37 @@
+{
+  "name": "DevFest USF 2024 - Google Developer Festival",
+  "short_name": "DevFest USF",
+  "description": "Join DevFest USF 2024, the premier Google Developer Festival featuring cutting-edge tech talks, workshops, and networking opportunities.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4285f4",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["technology", "education", "events"],
+  "lang": "en",
+  "dir": "ltr"
+}

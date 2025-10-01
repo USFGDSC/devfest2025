@@ -14,7 +14,7 @@ export function MobileMenu({ className = "" }: MobileMenuProps) {
     { href: "#hero", label: "Home" },
     { href: "#about", label: "About" },
     { href: "#events", label: "Events" },
-    { href: "#speakers", label: "Speakers" },
+    { href: "#tracks-speakers", label: "Tracks & Speakers" },
     { href: "#schedule", label: "Schedule" },
     { href: "#faq", label: "FAQ" },
   ];

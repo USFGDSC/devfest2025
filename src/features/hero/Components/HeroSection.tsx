@@ -62,16 +62,22 @@ export default function HeroSection() {
             </div>
 
             {/* Action buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+            <div className="flex flex-row gap-3 sm:gap-4 md:gap-6">
               <Button
                 variant="primary"
-                className="px-10 py-4 text-lg font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+                className="font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex-1"
+                onClick={() => {
+                  window.open(
+                    "https://bullsconnect.usf.edu/gdsc/rsvp_boot?id=1984399",
+                    "_blank"
+                  );
+                }}
               >
                 Join Us
               </Button>
               <Button
                 variant="outline"
-                className="px-10 py-4 text-lg font-bold border-2 border-gray-300 text-gray-700 hover:bg-gray-50 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+                className="font-bold text-gray-700 hover:bg-gray-50 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex-1"
               >
                 Become a Sponsor
               </Button>

@@ -2,4 +2,4 @@
 // Example implementation for future use
 
 export * from './client';
-export * from './schema';
+// export * from './schema'; // Schema file not implemented yet

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { Button } from "@/ui";
+import { useState, useEffect, useRef, useCallback } from "react";
+// import { Button } from "@/ui"; // Unused import removed
 import { CalendarIcon, Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -13,7 +13,7 @@ interface NavigationItem {
 const navigationItems: NavigationItem[] = [
   { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
-  { label: "Speakers", href: "#speakers" },
+  { label: "Tracks & Speakers", href: "#tracks-speakers" },
   { label: "Schedule", href: "#schedule" },
   { label: "Sponsors", href: "#sponsors" },
   { label: "FAQ", href: "#faq" },
@@ -34,15 +34,15 @@ const sectionLogoMap = {
   about: 1, // Blue
   speakers: 2, // Green
   schedule: 3, // Red
-  sponsors: 3, // Red (same as schedule)
-  faq: 3, // Red (same as schedule)
+  sponsors: 2, // Red (same as schedule)
+  faq: 1, // Red (same as schedule)
 } as const;
 
 export default function NavigationBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [, setIsTransitioning] = useState(false); // isTransitioning is used via ref
   const [isEasterEgg, setIsEasterEgg] = useState(false);
   const [showStatsPopup, setShowStatsPopup] = useState(false);
   const [popupPosition, setPopupPosition] = useState({ x: 0, y: 0 });
@@ -91,14 +91,17 @@ export default function NavigationBar() {
     });
   };
 
-  const handleMouseMove = (e: MouseEvent) => {
-    if (isDragging) {
-      setPopupPosition({
-        x: e.clientX - dragOffset.x,
-        y: e.clientY - dragOffset.y,
-      });
-    }
-  };
+  const handleMouseMove = useCallback(
+    (e: MouseEvent) => {
+      if (isDragging) {
+        setPopupPosition({
+          x: e.clientX - dragOffset.x,
+          y: e.clientY - dragOffset.y,
+        });
+      }
+    },
+    [isDragging, dragOffset]
+  );
 
   const handleMouseUp = () => {
     setIsDragging(false);
@@ -114,20 +117,20 @@ export default function NavigationBar() {
         document.removeEventListener("mouseup", handleMouseUp);
       };
     }
-  }, [isDragging, dragOffset]);
+  }, [isDragging, dragOffset, handleMouseMove]);
 
   // Generate special golden logo dynamically
-  const generateGoldenLogo = (baseLogoSrc: string): string => {
-    // Create a canvas to apply golden filter
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
+  // const generateGoldenLogo = (baseLogoSrc: string): string => {
+  //   // Create a canvas to apply golden filter
+  //   const canvas = document.createElement("canvas");
+  //   const ctx = canvas.getContext("2d");
 
-    if (!ctx) return baseLogoSrc;
+  //   if (!ctx) return baseLogoSrc;
 
-    // For now, we'll use CSS filters instead of canvas manipulation
-    // This is more performant and simpler
-    return baseLogoSrc; // We'll apply the golden effect via CSS
-  };
+  //   // For now, we'll use CSS filters instead of canvas manipulation
+  //   // This is more performant and simpler
+  //   return baseLogoSrc; // We'll apply the golden effect via CSS
+  // };
 
   useEffect(() => {
     // Handle basic scroll detection for navbar background and direction
@@ -277,7 +280,7 @@ export default function NavigationBar() {
 
     // Observe all sections
     const sections = document.querySelectorAll(
-      "#hero, #about, #speakers, #schedule, #sponsors, #faq"
+      "#hero, #about, #tracks-speakers, #schedule, #sponsors, #faq"
     );
     sections.forEach((section) => observer.observe(section));
 

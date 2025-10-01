@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { BraceIcon, GoogleIcon } from "@/ui/svgs";
 
 interface AnimatedHeroIntroProps {
@@ -17,7 +17,6 @@ interface AnimatedHeroIntroProps {
 }
 
 export default function AnimatedHeroIntro({
-  duration = 5,
   onAnimationComplete,
   autoPlay = true,
   allowSkip = true,
@@ -27,44 +26,92 @@ export default function AnimatedHeroIntro({
     "white" | "approaching" | "closed" | "opening" | "floating"
   >("white");
   const [showContent, setShowContent] = useState(false);
-  const [showParticles, setShowParticles] = useState(false);
+  const [showParticles] = useState(true);
+  const [isSkipped, setIsSkipped] = useState(false);
 
-  const handleSkip = () => {
-    if (!allowSkip) return;
+  const handleSkip = useCallback(() => {
+    if (!allowSkip || isSkipped) return;
+    setIsSkipped(true);
     // Chama o callback de skip para fechar a animação
     onSkip?.();
-  };
+  }, [allowSkip, isSkipped, onSkip]);
+
+  // Adicionar listener para scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        // Skip se rolar mais de 10px
+        handleSkip();
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" || e.key === " ") {
+        // ESC ou SPACE para skip
+        e.preventDefault();
+        handleSkip();
+      }
+    };
+
+    // Adicionar event listeners
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleSkip]);
 
   useEffect(() => {
-    if (!autoPlay) return;
+    if (!autoPlay || isSkipped) return;
 
     const phases = [
-      { phase: "approaching", delay: 500 }, // 1s - chaves começam a se aproximar
-      { phase: "closed", delay: 1000 }, // 2s - chaves se fecham
-      { phase: "opening", delay: 1600 }, // 3.2s - chaves começam a abrir
-      { phase: "floating", delay: 2600 }, // 4.5s - efeito de flutuação
+      { phase: "approaching", delay: 500 }, // 0.5s - chaves começam a se aproximar
+      { phase: "closed", delay: 1000 }, // 1s - chaves se fecham
+      { phase: "opening", delay: 1600 }, // 1.6s - chaves começam a abrir
+      { phase: "floating", delay: 2600 }, // 2.6s - efeito de flutuação
     ];
 
     const timers = phases.map(({ phase, delay }) =>
       setTimeout(() => {
+        if (isSkipped) return; // Não continua se foi pulado
         console.log(`Animação entrando na fase: ${phase}`);
-        setCurrentPhase(phase as any);
+        setCurrentPhase(
+          phase as "white" | "approaching" | "closed" | "opening" | "floating"
+        );
         if (phase === "opening") {
           setShowContent(true);
         }
         if (phase === "floating") {
-          //console.log("Chaves devem estar em -300px e +300px agora");
+          // Preload de outros componentes pode ser feito aqui
           onAnimationComplete?.();
-          // Mostra as partículas após 500ms de estar em floating
-          setTimeout(() => {
-            setShowParticles(true);
-          }, 500);
         }
       }, delay)
     );
 
     return () => timers.forEach(clearTimeout);
-  }, [autoPlay, onAnimationComplete]);
+  }, [autoPlay, onAnimationComplete, isSkipped]);
+
+  // Preload de recursos críticos
+  useEffect(() => {
+    // Preload da imagem principal do hero
+    const img = new Image();
+    img.src = "/Images/Hero-group.png";
+
+    // Preload de outras imagens críticas
+    const galleryImages = [
+      "/Images/gallery/Group 11.png",
+      "/Images/gallery/Group 12.png",
+      "/Images/gallery/Group 13.png",
+      "/Images/gallery/Group 14.png",
+    ];
+
+    galleryImages.forEach((src) => {
+      const galleryImg = new Image();
+      galleryImg.src = src;
+    });
+  }, []);
 
   const getBraceStyles = (isLeft: boolean) => {
     const baseSize = "w-20 h-40 md:w-24 md:h-48 lg:w-28 lg:h-56";
@@ -224,20 +271,25 @@ export default function AnimatedHeroIntro({
               animation: "fadeInParticles 0.5s ease-in-out both",
             }}
           >
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={i}
-                className="absolute w-3 h-3 bg-gradient-to-r from-green-400 to-blue-400 rounded-full opacity-40"
-                style={{
-                  left: `${15 + i * 10}%`,
-                  top: `${25 + (i % 4) * 15}%`,
-                  animation: `floatParticle ${
-                    3 + i * 0.5
-                  }s ease-in-out infinite`,
-                  animationDelay: `${i * 0.2}s`,
-                }}
-              />
-            ))}
+            {[...Array(12)].map((_, i) => {
+              const colors = ["#C3ECF6", "#CCF6C5", "#FFE7A5", "#F8D8D8"];
+              const color = colors[i % colors.length];
+              return (
+                <div
+                  key={i}
+                  className="absolute w-3 h-3 rounded-full opacity-60"
+                  style={{
+                    backgroundColor: color,
+                    left: `${10 + i * 7}%`,
+                    top: `${20 + (i % 5) * 12}%`,
+                    animation: `floatParticle ${
+                      3 + i * 0.3
+                    }s ease-in-out infinite`,
+                    animationDelay: `${i * 0.15}s`,
+                  }}
+                />
+              );
+            })}
           </div>
         )}
 
@@ -270,15 +322,23 @@ export default function AnimatedHeroIntro({
           </div>
         )}
 
-        {/* Indicação para pular (aparece após 2 segundos) */}
-        {allowSkip && currentPhase !== "white" && (
+        {/* Indicação para pular (visível desde o início) */}
+        {allowSkip && (
           <div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-500 text-sm opacity-60 pointer-events-none"
+            className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 text-gray-600 text-xs sm:text-sm font-medium pointer-events-none px-4"
             style={{
-              animation: "fadeInSkip 0.5s ease-in-out 2s both",
+              animation: "fadeInSkip 0.3s ease-in-out both",
+              opacity: 0.8,
             }}
           >
-            Click to skip
+            <div className="bg-white/90 backdrop-blur-sm px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-lg border border-gray-200 max-w-[280px] sm:max-w-none">
+              <span className="flex items-center justify-center gap-1 sm:gap-2 text-center">
+                <span className="whitespace-nowrap">Click to skip</span>
+                <span className="text-[10px] sm:text-xs text-gray-400 hidden xs:inline">
+                  • Scroll • ESC
+                </span>
+              </span>
+            </div>
           </div>
         )}
       </div>

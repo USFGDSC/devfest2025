@@ -61,10 +61,10 @@ export default function Home() {
       >
         <div className="text-center">
           <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            Our Sponsors
+          Our Partners
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Thank you to our amazing sponsors who make DevFest possible.
+            Thank you to our amazing partners who make DevFest possible.
           </p>
         </div>
       </section>

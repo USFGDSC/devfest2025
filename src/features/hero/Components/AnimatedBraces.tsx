@@ -205,20 +205,25 @@ export default function AnimatedBraces({
       </div>
 
       {/* Efeito de inércia - partículas flutuantes */}
-      {(animationState === "opening" || animationState === "complete") && (
+      {animationState !== "initial" && (
         <>
-          {[...Array(6)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-green-400 rounded-full opacity-60"
-              style={{
-                left: `${20 + i * 15}%`,
-                top: `${30 + (i % 3) * 20}%`,
-                animation: `float ${2 + i * 0.3}s ease-in-out infinite`,
-                animationDelay: `${i * 0.1}s`,
-              }}
-            />
-          ))}
+          {[...Array(8)].map((_, i) => {
+            const colors = ["#C3ECF6", "#CCF6C5", "#FFE7A5", "#F8D8D8"];
+            const color = colors[i % colors.length];
+            return (
+              <div
+                key={i}
+                className="absolute w-3 h-3 rounded-full opacity-60"
+                style={{
+                  backgroundColor: color,
+                  left: `${15 + i * 10}%`,
+                  top: `${25 + (i % 4) * 15}%`,
+                  animation: `float ${2 + i * 0.3}s ease-in-out infinite`,
+                  animationDelay: `${i * 0.15}s`,
+                }}
+              />
+            );
+          })}
         </>
       )}
 

@@ -3,6 +3,7 @@ import { HeroWithIntro } from "@/features/hero";
 import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 import { GallerySection } from "@/features/gallery";
 import { TracksSection } from "@/features/tracks";
+import { LocationSection } from "@/features/location";
 import { FAQSection } from "@/features/faqs";
 
 export default function Home() {
@@ -23,23 +24,11 @@ export default function Home() {
       {/* Tracks Section */}
       <TracksSection />
 
+      {/* Location Section */}
+      <LocationSection />
+
       {/* Gallery Section */}
       <GallerySection />
-
-      <section
-        id="speakers"
-        className="min-h-screen bg-gray-50 flex items-center justify-center"
-      >
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            Amazing Speakers
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Meet the incredible speakers who will be sharing their knowledge and
-            expertise.
-          </p>
-        </div>
-      </section>
 
       <section
         id="schedule"

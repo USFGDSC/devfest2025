@@ -17,13 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#tracks`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#speakers`,
+      url: `${baseUrl}/#tracks-speakers`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,

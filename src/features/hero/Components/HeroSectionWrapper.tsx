@@ -105,6 +105,12 @@ export default function HeroSectionWrapper() {
               <Button
                 variant="primary"
                 className="font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex-1"
+                onClick={() => {
+                  window.open(
+                    "https://bullsconnect.usf.edu/gdsc/rsvp_boot?id=1984399",
+                    "_blank"
+                  );
+                }}
               >
                 Join Us
               </Button>

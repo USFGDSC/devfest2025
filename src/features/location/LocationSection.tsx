@@ -55,7 +55,7 @@ export default function LocationSection() {
             {/* Building Name */}
             <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-black">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 font-product-sans mb-4">
-                ENG - Engineering Building I
+                ENG - Engineering Building II
               </h3>
 
               {/* Address */}
@@ -133,7 +133,7 @@ export default function LocationSection() {
             <div className="relative w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border-2 border-black">
               <Image
                 src="/Images/usf-engineering-ii.BeFaJwht.webp"
-                alt="USF Engineering Building I - Event Venue"
+                alt="USF Engineering Building II - Event Venue"
                 fill
                 className="object-cover"
                 quality={90}
@@ -146,7 +146,7 @@ export default function LocationSection() {
                   University of South Florida
                 </h4>
                 <p className="text-white/90 font-product-sans">
-                  Engineering Building I
+                  Engineering Building II
                 </p>
               </div>
             </div>

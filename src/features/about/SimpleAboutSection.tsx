@@ -196,7 +196,7 @@ export function SimpleAboutSection() {
           }`}
         >
           <p className="text-sm sm:text-lg md:text-xl text-white leading-relaxed text-center font-product-sans">
-            The Google Developer Student Club (GDSC) at the University of South
+            The Google Developer on Campus at the University of South
             Florida is one of the largest and most dynamic student organizations
             on campus. We are part of a global community supported by Google,
             dedicated to bridging the gap between theoretical knowledge and

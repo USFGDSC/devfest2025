@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { scheduleData } from "../data";
-import { calculateEventPositions } from "../utils";
+import { calculateEventPositions, timeToMinutes } from "../utils";
 import Timeline from "./Timeline";
 import ScheduleGrid from "./ScheduleGrid";
 import { Section } from "@/ui";
@@ -107,10 +107,10 @@ export default function ScheduleSection() {
                 <div className="space-y-4">
                   {filteredEvents
                     .sort((a, b) => {
-                      // Sort by start time
-                      const timeA = a.start_time;
-                      const timeB = b.start_time;
-                      return timeA.localeCompare(timeB);
+                      // Sort by start time using numeric comparison
+                      const timeA = timeToMinutes(a.start_time);
+                      const timeB = timeToMinutes(b.start_time);
+                      return timeA - timeB;
                     })
                     .map((event) => (
                       <div

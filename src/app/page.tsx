@@ -34,7 +34,7 @@ export default function Home() {
       {/* Schedule Section */}
       <ScheduleSection />
 
-      <section
+      {/* <section
         id="sponsors"
         className="min-h-screen bg-gray-50 flex items-center justify-center"
       >
@@ -46,7 +46,7 @@ export default function Home() {
             Thank you to our amazing partners who make DevFest possible.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <FAQSection />

@@ -12,28 +12,28 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
+    id: "when-where-devfest",
+    question: "When & Where is DevFest?",
+    answer:
+      "DevFest will be held on Saturday, November 15th, 2025 from 9:00 AM – 5:00 PM at the University of South Florida (USF) – Engineering II Building.",
+  },
+  {
+    id: "why-attend-devfest",
+    question: "Why Should You Attend DevFest?",
+    answer:
+      "DevFest offers Career Talks & AI Insights with honest perspectives and advice from experienced industry professionals, networking opportunities to connect with research labs, start-ups, and student clubs across business and technology, plus start-up inspiration to explore new ideas, ask questions, and get inspired to launch your own venture.",
+  },
+  {
+    id: "who-can-attend",
+    question: "Who Can Attend?",
+    answer:
+      "DevFest is open to all USF students! Register on BullsConnect to secure your spot, enjoy a catered lunch, and receive an exclusive participant kit.",
+  },
+  {
     id: "what-is-devfest",
-    question: "What is DevFest",
+    question: "What is DevFest?",
     answer:
-      "DevFest is a community-led developer event hosted by Google Developer Groups (GDGs) around the world. It's a multi-day conference featuring technical talks, hands-on workshops, and networking opportunities focused on Google's latest technologies and developer tools.",
-  },
-  {
-    id: "what-is-devfest-2",
-    question: "What is DevFest",
-    answer:
-      "DevFest brings together developers, designers, and tech enthusiasts to learn about cutting-edge technologies like AI/ML, Cloud Computing, Web Development, Mobile Development, and more. It's an opportunity to connect with industry experts and fellow developers.",
-  },
-  {
-    id: "what-is-devfest-3",
-    question: "What is DevFest",
-    answer:
-      "At DevFest, you'll experience inspiring keynotes, technical sessions, codelabs, and networking sessions. Whether you're a beginner or an experienced developer, there's something for everyone to learn and grow their skills.",
-  },
-  {
-    id: "what-is-devfest-4",
-    question: "What is DevFest",
-    answer:
-      "DevFest is free to attend and open to all skill levels. It's a great opportunity to learn from Google Developer Experts, connect with the local developer community, and discover new technologies that can advance your career.",
+      "DevFest is a community-led developer event hosted by Google Developer Groups (GDGs) around the world. It's a conference featuring technical talks, hands-on workshops, and networking opportunities focused on Google's latest technologies and developer tools.",
   },
 ];
 
@@ -106,6 +106,7 @@ export function FAQSection() {
 
   return (
     <section
+      id="faq"
       className="relative min-h-screen py-16 md:py-24 overflow-hidden"
       style={{ backgroundColor: "#F5F5F5" }}
     >

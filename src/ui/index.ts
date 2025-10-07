@@ -6,6 +6,7 @@ export { EmptyState } from './EmptyState';
 export { MobileMenu } from './MobileMenu';
 export { Badge } from './Badge';
 export { Hashtag } from './Hashtag';
+export { default as Section } from './Section';
 
 // SVG components
 export * from './svgs';

@@ -14,7 +14,12 @@ const nextConfig: NextConfig = {
     
     // Permitir otimização de imagens externas se necessário
     remotePatterns: [
-      // Adicione aqui se usar imagens de domínios externos
+      {
+        protocol: 'https',
+        hostname: 'media.licdn.com',
+        port: '',
+        pathname: '/dms/image/**',
+      },
     ],
     
     // Desabilitar otimização para SVGs para evitar erros

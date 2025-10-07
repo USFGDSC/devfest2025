@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Navigation, ExternalLink, Car } from "lucide-react";
+import { MapPin, Navigation, ExternalLink, Car, Building2 } from "lucide-react";
 import Image from "next/image";
 import { Button } from "@/ui";
 
@@ -55,7 +55,7 @@ export default function LocationSection() {
             {/* Building Name */}
             <div className="bg-gray-50 rounded-2xl p-6 md:p-8 border-2 border-black">
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 font-product-sans mb-4">
-                ENG - Engineering Building I
+                ENG - Engineering Building II
               </h3>
 
               {/* Address */}
@@ -67,6 +67,19 @@ export default function LocationSection() {
                   </p>
                   <p className="text-lg text-gray-700 font-product-sans">
                     Tampa, FL 33620
+                  </p>
+                </div>
+              </div>
+
+              {/* Event Rooms */}
+              <div className="flex items-start gap-3 mb-6">
+                <Building2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                <div>
+                  <p className="text-lg font-medium text-gray-900 font-product-sans">
+                    Event Rooms
+                  </p>
+                  <p className="text-lg text-gray-700 font-product-sans">
+                    ENB 109, ENB 116, ENB 118, Hall of Flags
                   </p>
                 </div>
               </div>
@@ -93,39 +106,6 @@ export default function LocationSection() {
                 </Button>
               </div>
             </div>
-
-            {/* Additional Info - Hidden on mobile */}
-            <div className="hidden md:block bg-green-50 rounded-2xl p-6 border-2 border-black">
-              <h4 className="text-xl font-bold text-green-900 font-product-sans mb-3">
-                Venue Information
-              </h4>
-              <ul className="space-y-2 text-green-800">
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  <span className="font-product-sans">
-                    Modern facilities with high-tech equipment
-                  </span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  <span className="font-product-sans">
-                    Free parking available on campus
-                  </span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  <span className="font-product-sans">
-                    Accessible building with elevators
-                  </span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                  <span className="font-product-sans">
-                    Food and refreshments provided
-                  </span>
-                </li>
-              </ul>
-            </div>
           </div>
 
           {/* Right - Building Image */}
@@ -133,7 +113,7 @@ export default function LocationSection() {
             <div className="relative w-full h-80 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl border-2 border-black">
               <Image
                 src="/Images/usf-engineering-ii.BeFaJwht.webp"
-                alt="USF Engineering Building I - Event Venue"
+                alt="USF Engineering Building II - Event Venue"
                 fill
                 className="object-cover"
                 quality={90}
@@ -146,7 +126,7 @@ export default function LocationSection() {
                   University of South Florida
                 </h4>
                 <p className="text-white/90 font-product-sans">
-                  Engineering Building I
+                  Engineering Building II
                 </p>
               </div>
             </div>

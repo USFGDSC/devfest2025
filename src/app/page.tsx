@@ -4,6 +4,7 @@ import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 import { GallerySection } from "@/features/gallery";
 import { TracksSection } from "@/features/tracks";
 import { LocationSection } from "@/features/location";
+import { ScheduleSection } from "@/features/schedule";
 import { FAQSection } from "@/features/faqs";
 
 export default function Home() {
@@ -30,22 +31,10 @@ export default function Home() {
       {/* Gallery Section */}
       <GallerySection />
 
-      <section
-        id="schedule"
-        className="min-h-screen bg-white flex items-center justify-center"
-      >
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 font-product-sans mb-4">
-            Event Schedule
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Check out the full schedule of talks, workshops, and networking
-            sessions.
-          </p>
-        </div>
-      </section>
+      {/* Schedule Section */}
+      <ScheduleSection />
 
-      <section
+      {/* <section
         id="sponsors"
         className="min-h-screen bg-gray-50 flex items-center justify-center"
       >
@@ -57,7 +46,7 @@ export default function Home() {
             Thank you to our amazing partners who make DevFest possible.
           </p>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <FAQSection />

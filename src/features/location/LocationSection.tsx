@@ -106,7 +106,6 @@ export default function LocationSection() {
                 </Button>
               </div>
             </div>
-
           </div>
 
           {/* Right - Building Image */}

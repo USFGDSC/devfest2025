@@ -15,57 +15,45 @@ interface Track {
 
 const tracks: Track[] = [
   {
-    id: "expert",
-    name: "Expert",
-    description: "Master advanced skills and lead in tech innovation",
+    id: "build-with-ai",
+    name: "Build with AI 🤖",
+    description: "Explore cutting-edge AI technologies and applications",
     bullets: [
-      "Cutting-edge tools, frameworks, and AI",
-      "Insights from software, data science, and cybersecurity",
-      "Lead in emerging tech fields",
+      "Explore cutting-edge AI technologies and applications",
+      "Gain insights from GDEs and AI practitioners",
+      "Hands-on learning experiences in AI projects",
     ],
     idleFill: "#C3ECF6",
     selectedFill: "#4285F4",
   },
   {
     id: "entrepreneurship",
-    name: "Entrepreneurship",
-    description: "Inspire your journey with insights from tech leaders",
+    name: "Entrepreneurship 💡",
+    description: "Learn strategies to launch and grow startups",
     bullets: [
-      "Startup skills and strategies",
-      "Connect with professionals and visionaries",
-      "Overcome challenges and grow",
+      "Learn strategies to launch and grow startups",
+      "Hear founder stories and real-world case studies",
+      "Participate in interactive sessions to brainstorm ideas",
     ],
     idleFill: "#CCF6C5",
     selectedFill: "#34A853",
   },
   {
-    id: "spotlight",
-    name: "Spotlight",
-    description: "Kickstart your career with practical advice from the pros",
+    id: "industry-spotlight",
+    name: "Industry Spotlight 🌟",
+    description: "Career talks from seasoned professionals",
     bullets: [
-      "Job search, interviews, and resume",
-      "Early-career challenges and opportunities",
-      "Build confidence and a professional network",
+      "Career talks from seasoned professionals",
+      "Insights into emerging tech trends and industry best practices",
+      "Networking opportunities with recruiters and tech leaders",
     ],
     idleFill: "#FFE7A5",
     selectedFill: "#FAAB00",
   },
-  {
-    id: "workshop",
-    name: "Workshop",
-    description: "Hands-on learning with leaders in USF tech clubs",
-    bullets: [
-      "Workshops by SHPE, IEEE-CS, BCI, SCP",
-      "Practical technology experiences",
-      "Foundation for your future tech career",
-    ],
-    idleFill: "#F8D8D8",
-    selectedFill: "#EA4336",
-  },
 ];
 
 export function TracksSection() {
-  const [selectedTrack, setSelectedTrack] = useState<string>("expert");
+  const [selectedTrack, setSelectedTrack] = useState<string>("build-with-ai");
   const [activeView, setActiveView] = useState<"about" | "speakers">("about");
 
   const selectedTrackData = tracks.find((track) => track.id === selectedTrack);
@@ -115,7 +103,7 @@ export function TracksSection() {
             {/* Mobile: 2x2 Grid Layout */}
             <div className="lg:hidden w-full px-4">
               <div className="grid grid-cols-2 gap-3">
-                {tracks.map((track) => (
+                {tracks.slice(0, 2).map((track) => (
                   <button
                     key={track.id}
                     onClick={() => setSelectedTrack(track.id)}
@@ -132,19 +120,55 @@ export function TracksSection() {
                   </button>
                 ))}
               </div>
+              {/* Third track centered below */}
+              {tracks.length === 3 && (
+                <div className="flex justify-center mt-3">
+                  <button
+                    key={tracks[2].id}
+                    onClick={() => setSelectedTrack(tracks[2].id)}
+                    className="px-4 py-3 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm transition-all duration-200"
+                    style={{
+                      backgroundColor:
+                        selectedTrack === tracks[2].id
+                          ? tracks[2].selectedFill
+                          : tracks[2].idleFill,
+                      color:
+                        selectedTrack === tracks[2].id ? "white" : "#333333",
+                    }}
+                  >
+                    {tracks[2].name}
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Desktop: Track Cards Grid */}
-            <div className="hidden lg:grid grid-cols-2 gap-8 max-w-lg mx-auto lg:mx-0 lg:order-1">
-              {tracks.map((track, index) => (
-                <TrackCard
-                  key={track.id}
-                  track={track}
-                  isSelected={selectedTrack === track.id}
-                  onClick={() => setSelectedTrack(track.id)}
-                  animationDelay={index * 0.5}
-                />
-              ))}
+            <div className="hidden lg:block max-w-lg mx-auto lg:mx-0 lg:order-1">
+              {/* First two cards in grid */}
+              <div className="grid grid-cols-2 gap-8 mb-8">
+                {tracks.slice(0, 2).map((track, index) => (
+                  <TrackCard
+                    key={track.id}
+                    track={track}
+                    isSelected={selectedTrack === track.id}
+                    onClick={() => setSelectedTrack(track.id)}
+                    animationDelay={index * 0.5}
+                  />
+                ))}
+              </div>
+              {/* Third card centered below */}
+              {tracks.length === 3 && (
+                <div className="flex justify-center">
+                  <div className="w-1/2">
+                    <TrackCard
+                      track={tracks[2]}
+                      isSelected={selectedTrack === tracks[2].id}
+                      onClick={() => setSelectedTrack(tracks[2].id)}
+                      animationDelay={2 * 0.5}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Content Panel */}

@@ -20,7 +20,7 @@ export function SpeakersGrid({ selectedTrack, trackColor }: SpeakersGridProps) {
       <div className="text-center py-8">
         <div
           className="w-16 h-16 rounded-full border-[2px] border-dashed mx-auto mb-4 flex items-center justify-center"
-          style={{ borderColorico: trackColor }}
+          style={{ borderColor: trackColor }}
         >
           <span className="text-2xl">🎤</span>
         </div>

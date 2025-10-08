@@ -240,17 +240,11 @@ export function SimpleAboutSection() {
           {doodleComponents.slice(0, 3).map((DoodleComponent, index) => (
             <div
               key={index}
-              className={`w-8 h-8 sm:w-12 sm:h-12 ${
-                isDesktop ? "animate-bounce" : ""
-              }`}
-              style={
-                isDesktop
-                  ? {
-                      animationDelay: `${index * 0.2}s`,
-                      animationDuration: `${3 + index * 0.5}s`,
-                    }
-                  : {}
-              }
+              className="w-8 h-8 sm:w-12 sm:h-12 animate-bounce"
+              style={{
+                animationDelay: `${index * 0.2}s`,
+                animationDuration: `${3 + index * 0.5}s`,
+              }}
             >
               <DoodleComponent className="w-full h-full text-white opacity-60" />
             </div>

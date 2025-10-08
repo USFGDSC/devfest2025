@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import {
   WavesIcon,
   HashIcon,
@@ -23,83 +23,105 @@ const SPEED = 2;
 
 export function SimpleAboutSection() {
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
-  const [doodlePositions, setDoodlePositions] = useState<DoodlePosition[]>([]);
   const [mounted, setMounted] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
 
+  // Use refs to avoid re-renders during animation
+  const doodlePositionsRef = useRef<DoodlePosition[]>([]);
+  const animationFrameRef = useRef<number | undefined>(undefined);
+  const doodleElementsRef = useRef<(HTMLDivElement | null)[]>([]);
+
   // Initialize doodle positions
-  useEffect(() => {
-    setMounted(true);
-    const initializePositions = () => {
-      const positions: DoodlePosition[] = [];
-      const safeWidth = Math.max(
-        containerSize.width - DOODLE_SIZE,
-        DOODLE_SIZE
-      );
-      const safeHeight = Math.max(
-        containerSize.height - DOODLE_SIZE,
-        DOODLE_SIZE
-      );
+  const initializePositions = useCallback(() => {
+    if (containerSize.width <= 0 || containerSize.height <= 0) return;
 
-      for (let i = 0; i < 5; i++) {
-        positions.push({
-          x: Math.random() * safeWidth,
-          y: Math.random() * safeHeight,
-          vx: (Math.random() - 0.5) * SPEED * 2,
-          vy: (Math.random() - 0.5) * SPEED * 2,
-          rotation: Math.random() * 360,
-          rotationSpeed: (Math.random() - 0.5) * 2,
-        });
-      }
-      setDoodlePositions(positions);
-    };
+    const positions: DoodlePosition[] = [];
+    const safeWidth = Math.max(containerSize.width - DOODLE_SIZE, DOODLE_SIZE);
+    const safeHeight = Math.max(
+      containerSize.height - DOODLE_SIZE,
+      DOODLE_SIZE
+    );
 
-    if (containerSize.width > 0 && containerSize.height > 0) {
-      initializePositions();
+    for (let i = 0; i < 5; i++) {
+      positions.push({
+        x: Math.random() * safeWidth,
+        y: Math.random() * safeHeight,
+        vx: (Math.random() - 0.5) * SPEED * 2,
+        vy: (Math.random() - 0.5) * SPEED * 2,
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 2,
+      });
     }
+    doodlePositionsRef.current = positions;
   }, [containerSize]);
 
-  // Animation loop
   useEffect(() => {
-    if (doodlePositions.length === 0) return;
+    setMounted(true);
+    initializePositions();
+  }, [initializePositions]);
 
-    const animate = () => {
-      setDoodlePositions((prev) =>
-        prev.map((pos) => {
-          let newX = pos.x + pos.vx;
-          let newY = pos.y + pos.vy;
-          let newVx = pos.vx;
-          let newVy = pos.vy;
+  // Optimized animation loop using requestAnimationFrame
+  const animate = useCallback(() => {
+    if (!mounted || !isDesktop || doodlePositionsRef.current.length === 0) {
+      return;
+    }
 
-          // Bounce off boundaries with safety margins
-          const maxX = containerSize.width - DOODLE_SIZE;
-          const maxY = containerSize.height - DOODLE_SIZE;
+    const maxX = containerSize.width - DOODLE_SIZE;
+    const maxY = containerSize.height - DOODLE_SIZE;
 
-          if (newX <= 0 || newX >= maxX) {
-            newVx = -newVx;
-            newX = Math.max(0, Math.min(maxX, newX));
-          }
+    // Update positions directly in ref (no re-render)
+    doodlePositionsRef.current = doodlePositionsRef.current.map(
+      (pos, index) => {
+        let newX = pos.x + pos.vx;
+        let newY = pos.y + pos.vy;
+        let newVx = pos.vx;
+        let newVy = pos.vy;
 
-          if (newY <= 0 || newY >= maxY) {
-            newVy = -newVy;
-            newY = Math.max(0, Math.min(maxY, newY));
-          }
+        // Bounce off boundaries with safety margins
+        if (newX <= 0 || newX >= maxX) {
+          newVx = -newVx;
+          newX = Math.max(0, Math.min(maxX, newX));
+        }
 
-          return {
-            ...pos,
-            x: newX,
-            y: newY,
-            vx: newVx,
-            vy: newVy,
-            rotation: pos.rotation + pos.rotationSpeed,
-          };
-        })
-      );
+        if (newY <= 0 || newY >= maxY) {
+          newVy = -newVy;
+          newY = Math.max(0, Math.min(maxY, newY));
+        }
+
+        const newRotation = pos.rotation + pos.rotationSpeed;
+
+        // Update DOM directly for better performance
+        const element = doodleElementsRef.current[index];
+        if (element) {
+          element.style.transform = `translate(${newX}px, ${newY}px) rotate(${newRotation}deg)`;
+        }
+
+        return {
+          ...pos,
+          x: newX,
+          y: newY,
+          vx: newVx,
+          vy: newVy,
+          rotation: newRotation,
+        };
+      }
+    );
+
+    animationFrameRef.current = requestAnimationFrame(animate);
+  }, [mounted, isDesktop, containerSize]);
+
+  // Start/stop animation based on conditions
+  useEffect(() => {
+    if (mounted && isDesktop && doodlePositionsRef.current.length > 0) {
+      animationFrameRef.current = requestAnimationFrame(animate);
+    }
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
-
-    const interval = setInterval(animate, 16); // ~60fps
-    return () => clearInterval(interval);
-  }, [doodlePositions.length, containerSize]);
+  }, [animate, mounted, isDesktop]);
 
   // Handle container resize and screen size detection
   useEffect(() => {
@@ -146,25 +168,23 @@ export function SimpleAboutSection() {
       {/* Background animated doodles - Only on desktop */}
       {mounted &&
         isDesktop &&
-        doodlePositions.map((pos, index) => {
-          const DoodleComponent = doodleComponents[index];
-          return (
-            <div
-              key={index}
-              className="absolute pointer-events-none opacity-30 transition-all duration-75"
-              style={{
-                left: pos.x,
-                top: pos.y,
-                width: DOODLE_SIZE,
-                height: DOODLE_SIZE,
-                transform: `rotate(${pos.rotation}deg)`,
-                filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))",
-              }}
-            >
-              <DoodleComponent className="w-full h-full" />
-            </div>
-          );
-        })}
+        doodleComponents.slice(0, 5).map((DoodleComponent, index) => (
+          <div
+            key={index}
+            ref={(el) => {
+              doodleElementsRef.current[index] = el;
+            }}
+            className="absolute pointer-events-none opacity-30"
+            style={{
+              width: DOODLE_SIZE,
+              height: DOODLE_SIZE,
+              filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.5))",
+              transform: "translate(0px, 0px) rotate(0deg)", // Initial transform
+            }}
+          >
+            <DoodleComponent className="w-full h-full" />
+          </div>
+        ))}
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center px-4 sm:px-8 py-8 sm:py-12">
@@ -196,7 +216,7 @@ export function SimpleAboutSection() {
           }`}
         >
           <p className="text-sm sm:text-lg md:text-xl text-white leading-relaxed text-center font-product-sans">
-            The Google Developer on Campus at the University of South
+            The Google Developer Group on Campus at the University of South
             Florida is one of the largest and most dynamic student organizations
             on campus. We are part of a global community supported by Google,
             dedicated to bridging the gap between theoretical knowledge and

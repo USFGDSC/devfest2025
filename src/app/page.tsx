@@ -2,6 +2,7 @@ import { NavigationBar, FloatingCalendarButton } from "@/features/navigation";
 import { HeroWithIntro } from "@/features/hero";
 import { SimpleAboutSection } from "@/features/about/SimpleAboutSection";
 import { GallerySection } from "@/features/gallery";
+import { StatsSection } from "@/features/stats";
 import { TracksSection } from "@/features/tracks";
 import { LocationSection } from "@/features/location";
 import { ScheduleSection } from "@/features/schedule";
@@ -30,6 +31,10 @@ export default function Home() {
 
       {/* Gallery Section */}
       <GallerySection />
+
+      {/* Stats Section */}
+      
+      {/* <StatsSection /> */}
 
       {/* Schedule Section */}
       <ScheduleSection />

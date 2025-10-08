@@ -20,22 +20,24 @@ const navigationItems: NavigationItem[] = [
 ];
 
 // Logo variants based on visible sections
-// Changes when user enters each section: Hero → About → Speakers → Schedule+
+// Changes when user enters each section: Hero → About → Speakers → Schedule → FAQ
 const logoVariants = [
   { src: "/logos/Logo Horizontal - Light  1.svg", alt: "DevFest USF Light" }, // Hero section
   { src: "/logos/Logo Horizontal - Blue 1.svg", alt: "DevFest USF Blue" }, // About section
   { src: "/logos/Logo Horizontal - Green 1.svg", alt: "DevFest USF Green" }, // Speakers section
   { src: "/logos/Logo Horizontal - Red 1.svg", alt: "DevFest USF Red" }, // Schedule+ sections
+  { src: "/logos/Logo Horizontal - Yellow  1.svg", alt: "DevFest USF Yellow" }, // FAQ section
 ];
 
 // Map sections to logo variants
 const sectionLogoMap = {
   hero: 0, // Light
   about: 1, // Blue
-  speakers: 2, // Green
+  speakers: 1, // Blue (same as about)
+  location: 2, // Green
   schedule: 3, // Red
-  sponsors: 2, // Red (same as schedule)
-  faq: 1, // Red (same as schedule)
+  sponsors: 3, // Red (same as schedule)
+  faq: 4, // Yellow
 } as const;
 
 export default function NavigationBar() {
@@ -59,8 +61,8 @@ export default function NavigationBar() {
   const easterEggCountRef = useRef<number>(0);
   const logoRef = useRef<HTMLDivElement>(null);
 
-  // Easter egg function - 1 in 1000 chance
-  const CHANCE = 0.001; // 0.1%
+  // Easter egg function - 1 in 10000 chance
+  const CHANCE = 0.0001; // 0.01%
   const triggerEasterEgg = (): boolean => {
     transitionCountRef.current += 1;
     const isTriggered = Math.random() < CHANCE;
@@ -177,6 +179,7 @@ export default function NavigationBar() {
         "hero",
         "about",
         "speakers",
+        "location",
         "schedule",
         "sponsors",
         "faq",
@@ -280,7 +283,7 @@ export default function NavigationBar() {
 
     // Observe all sections
     const sections = document.querySelectorAll(
-      "#hero, #about, #tracks-speakers, #schedule, #sponsors, #faq"
+      "#hero, #about, #tracks-speakers, #location, #schedule, #sponsors, #faq"
     );
     sections.forEach((section) => observer.observe(section));
 
@@ -595,7 +598,7 @@ export default function NavigationBar() {
               {/* Message */}
               <div className="text-center">
                 <p className="text-xs text-gray-500">
-                  Keep scrolling to win prizes
+                  Only 0.01% chance to get the golden logo! ✨
                 </p>
               </div>
             </div>

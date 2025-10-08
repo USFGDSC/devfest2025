@@ -43,7 +43,7 @@ export const scheduleData: ScheduleEvent[] = [
     "activity": "Breakfast",
     "start_time": "9:00 AM",
     "end_time": "10:00 AM",
-    "location": "coming soon",
+    "location": "ENB Hall of Flags",
     "speaker": "coming soon",
     "column": 2
   },

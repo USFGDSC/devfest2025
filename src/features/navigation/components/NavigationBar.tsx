@@ -305,10 +305,11 @@ export default function NavigationBar() {
     const event = {
       title: "DevFest USF 2025",
       details:
-        "The world's largest community-driven tech conference, hosted by Google Developer Groups",
-      location: "University of South Florida, Tampa, FL",
-      startDate: "20251201T090000Z", // December 1, 2025, 9:00 AM UTC
-      endDate: "20251201T180000Z", // December 1, 2025, 6:00 PM UTC
+        "The world's largest community-driven tech conference, hosted by Google Developer Groups. Join us for a day of learning, networking, and innovation with cutting-edge technologies.",
+      location:
+        "ENG - Engineering Building II, 4202 E Fowler Ave, Tampa, FL 33620",
+      startDate: "20251115T140000Z", // November 15, 2025, 9:00 AM EST
+      endDate: "20251115T220000Z", // November 15, 2025, 5:00 PM EST
     };
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(

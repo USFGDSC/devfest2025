@@ -190,7 +190,7 @@ export function Footer() {
 
   return (
     <footer
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 transition-all duration-700 ease-out ${
+      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-700 ease-out ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-20 opacity-0"
       }`}
     >

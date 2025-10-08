@@ -44,6 +44,40 @@ export default function ScheduleSection() {
     activity: "Activities",
   };
 
+  const getCategoryColor = (
+    category: string
+  ): { selected: string; idle: string } => {
+    const colorMap: Record<string, { selected: string; idle: string }> = {
+      ceremony: {
+        selected: "bg-[#EA4335] text-white",
+        idle: "bg-[#F6C5C3] text-[#333333] hover:bg-[#E6A8A4]",
+      },
+      speaker: {
+        selected: "bg-[#4285F4] text-white",
+        idle: "bg-[#C3ECF6] text-[#333333] hover:bg-[#A8D4E6]",
+      },
+      meal: {
+        selected: "bg-[#34A853] text-white",
+        idle: "bg-[#CCF6C5] text-[#333333] hover:bg-[#B4E6A8]",
+      },
+      networking: {
+        selected: "bg-[#9C27B0] text-white",
+        idle: "bg-[#E1BEE7] text-[#333333] hover:bg-[#CE93D8]",
+      },
+      activity: {
+        selected: "bg-[#FAAB00] text-white",
+        idle: "bg-[#FFE7A5] text-[#333333] hover:bg-[#FFD966]",
+      },
+    };
+
+    return (
+      colorMap[category] || {
+        selected: "bg-[#4285F4] text-white",
+        idle: "bg-[#C3ECF6] text-[#333333] hover:bg-[#A8D4E6]",
+      }
+    );
+  };
+
   return (
     <Section id="schedule" className="bg-white py-16 lg:py-24">
       <div className="container mx-auto px-6 lg:px-8">
@@ -58,13 +92,13 @@ export default function ScheduleSection() {
           </p>
 
           {/* Category filters */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
             <button
               onClick={() => setSelectedCategory("all")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+              className={`px-4 py-2 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm transition-all duration-200 ${
                 selectedCategory === "all"
-                  ? "bg-blue-600 text-white shadow-md"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  ? "bg-[#4285F4] text-white"
+                  : "bg-[#C3ECF6] text-[#333333] hover:bg-[#A8D4E6]"
               }`}
             >
               All Events
@@ -73,10 +107,10 @@ export default function ScheduleSection() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm transition-all duration-200 ${
                   selectedCategory === category
-                    ? "bg-blue-600 text-white shadow-md"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? getCategoryColor(category).selected
+                    : getCategoryColor(category).idle
                 }`}
               >
                 {categoryLabels[category] || category}

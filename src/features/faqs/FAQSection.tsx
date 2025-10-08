@@ -135,7 +135,7 @@ export function FAQSection() {
     <>
       <section
         id="faq"
-        className="relative py-12 md:py-16 overflow-hidden"
+        className="relative pt-12 md:pt-16 pb-20 md:pb-28 overflow-hidden"
         style={{ backgroundColor: "#F5F5F5" }}
       >
         {/* Decorative background elements */}

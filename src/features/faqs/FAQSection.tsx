@@ -7,7 +7,7 @@ import { AsteriskIcon, HashIcon, CurvedArrowIcon } from "@/ui/doodles";
 interface FAQItem {
   id: string;
   question: string;
-  answer: string;
+  answer: string | React.ReactNode;
 }
 
 const faqData: FAQItem[] = [
@@ -34,6 +34,23 @@ const faqData: FAQItem[] = [
     question: "What is DevFest?",
     answer:
       "DevFest is a community-led developer event hosted by Google Developer Groups (GDGs) around the world. It's a conference featuring technical talks, hands-on workshops, and networking opportunities focused on Google's latest technologies and developer tools.",
+  },
+  {
+    id: "devfest-2024-stats",
+    question: "How Successful Was DevFest 2024?",
+    answer: (
+      <>
+        DevFest 2024 was a tremendous success! We had{" "}
+        <strong>213 total event registrations</strong> with{" "}
+        <strong>169 checked-in attendees</strong>, representing{" "}
+        <strong>13+ different majors</strong> across campus. The event saw{" "}
+        <strong>24% registration growth</strong> compared to 2023, with{" "}
+        <strong>161 undergraduate students</strong> participating. Juniors led
+        attendance with <strong>48 participants</strong>, showcasing strong
+        engagement across all class years. These numbers reflect the
+        event&apos;s growing scale, diversity, and impact in the USF community.
+      </>
+    ),
   },
 ];
 
@@ -107,7 +124,7 @@ export function FAQSection() {
   return (
     <section
       id="faq"
-      className="relative min-h-screen py-16 md:py-24 overflow-hidden"
+      className="relative py-12 md:py-16 overflow-hidden"
       style={{ backgroundColor: "#F5F5F5" }}
     >
       {/* Decorative background elements */}
@@ -219,20 +236,10 @@ export function FAQSection() {
           </div>
         </motion.div>
 
-        {/* Call to action */}
-        <motion.div
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-        >
-          <p className="text-gray-600 mb-4 font-product-sans">
-            Still have questions?
-          </p>
-          <button className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-full hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl">
-            Contact Us
-          </button>
-        </motion.div>
+        {/* Spacer text for additional margin */}
+        <div className="text-center mt-16 opacity-0 pointer-events-none">
+          <p className="text-gray-600 font-product-sans">Spacer</p>
+        </div>
       </div>
     </section>
   );

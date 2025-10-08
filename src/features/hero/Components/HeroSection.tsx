@@ -2,10 +2,13 @@
 
 import { Badge, Button } from "@/ui";
 import { BraceIcon, GoogleIcon } from "@/ui/svgs";
-import { Globe } from "lucide-react";
+import { Globe, X } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function HeroSection() {
+  const [showSponsorModal, setShowSponsorModal] = useState(false);
+
   return (
     <section
       id="hero"
@@ -50,7 +53,6 @@ export default function HeroSection() {
                     className="text-green-500 w-10 h-20 md:w-14 md:h-28 lg:w-16 lg:h-32 flex-shrink-0"
                   />
                 </h1>
-                
               </div>
 
               {/* Subtitle */}
@@ -78,6 +80,7 @@ export default function HeroSection() {
               <Button
                 variant="outline"
                 className="font-bold text-gray-700 hover:bg-gray-50 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex-1"
+                onClick={() => setShowSponsorModal(true)}
               >
                 Become a Sponsor
               </Button>
@@ -100,6 +103,51 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
+
+      {/* Sponsor Modal */}
+      {showSponsorModal && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowSponsorModal(false)}
+        >
+          <div
+            className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 md:p-8 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowSponsorModal(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X size={24} />
+            </button>
+
+            <div className="text-center">
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 font-product-sans">
+                Become a Sponsor
+              </h3>
+              <p className="text-gray-600 mb-6 font-product-sans">
+                Interested in sponsoring DevFest USF 2025? We&apos;d love to hear from you!
+              </p>
+
+              <div className="bg-gray-50 rounded-xl p-4 mb-6 border-2 border-gray-200">
+                <p className="text-sm text-gray-500 mb-2 font-product-sans">
+                  Contact us at:
+                </p>
+                <a
+                  href="mailto:mariajulia57@usf.edu?subject=DevFest%20USF%202025%20-%20Sponsorship%20Opportunity&body=Hello%2C%0A%0AI%20am%20interested%20in%20becoming%20a%20sponsor%20for%20DevFest%20USF%202025.%0A%0ADevFest%20is%20the%20world's%20largest%20community-driven%20tech%20conference%20hosted%20by%20Google%20Developer%20Groups%2C%20and%20we%20would%20love%20to%20explore%20partnership%20opportunities%20with%20your%20organization.%0A%0ACould%20you%20please%20provide%20more%20information%20about%20sponsorship%20packages%20and%20benefits%20available%20for%20this%20event%3F%0A%0AI%20look%20forward%20to%20hearing%20from%20you.%0A%0ABest%20regards%2C"
+                  className="text-blue-600 hover:text-blue-700 font-semibold text-lg break-all font-product-sans transition-colors"
+                >
+                  mariajulia57@usf.edu
+                </a>
+              </div>
+
+              <p className="text-xs text-gray-500 font-product-sans">
+                Click the email above to open your email client with a pre-filled message
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

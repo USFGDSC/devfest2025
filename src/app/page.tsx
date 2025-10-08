@@ -7,6 +7,7 @@ import { TracksSection } from "@/features/tracks";
 import { LocationSection } from "@/features/location";
 import { ScheduleSection } from "@/features/schedule";
 import { FAQSection } from "@/features/faqs";
+import { Footer } from "@/features/footer";
 
 export default function Home() {
   return (
@@ -33,7 +34,7 @@ export default function Home() {
       <GallerySection />
 
       {/* Stats Section */}
-      
+
       {/* <StatsSection /> */}
 
       {/* Schedule Section */}
@@ -55,6 +56,9 @@ export default function Home() {
 
       {/* FAQ Section */}
       <FAQSection />
+
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

@@ -99,8 +99,9 @@ export function Footer() {
 
   useEffect(() => {
     let timeoutId: NodeJS.Timeout | null = null;
+    let checkIntervalId: NodeJS.Timeout | null = null;
 
-    const handleScroll = () => {
+    const checkPosition = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const threshold = 5;
@@ -108,6 +109,25 @@ export function Footer() {
       const isAtBottom = scrollPosition >= documentHeight - threshold;
 
       setAtBottom(isAtBottom);
+
+      // Reset quando não estiver mais no fundo (importante para quando o conteúdo muda)
+      if (!isAtBottom && (showFooter || isVisible)) {
+        setIsVisible(false);
+        setShowFooter(false);
+        setIsExpanded(false);
+        document.body.style.paddingBottom = "";
+
+        if (timeoutId) {
+          clearTimeout(timeoutId);
+          timeoutId = null;
+        }
+      }
+
+      return isAtBottom;
+    };
+
+    const handleScroll = () => {
+      const isAtBottom = checkPosition();
 
       // Limpar timeout anterior
       if (timeoutId) {
@@ -117,7 +137,7 @@ export function Footer() {
 
       // Se chegou ao fundo e ainda não mostrou o footer
       if (isAtBottom && !showFooter) {
-        // Esperar 3 segundos antes de mostrar
+        // Esperar 500ms antes de mostrar
         timeoutId = setTimeout(() => {
           setShowFooter(true);
 
@@ -133,15 +153,13 @@ export function Footer() {
           }, 100);
         }, 500);
       }
-
-      // Reset quando scrollar para cima (não está mais no fundo)
-      if (!isAtBottom && showFooter) {
-        setIsVisible(false);
-        setShowFooter(false);
-        setIsExpanded(false);
-        document.body.style.paddingBottom = "";
-      }
     };
+
+    // Verificar posição continuamente quando o footer está visível
+    // Isso detecta mudanças no tamanho da página (como FAQ expandindo)
+    if (showFooter || isVisible) {
+      checkIntervalId = setInterval(checkPosition, 100);
+    }
 
     window.addEventListener("scroll", handleScroll);
     handleScroll();
@@ -151,9 +169,12 @@ export function Footer() {
       if (timeoutId) {
         clearTimeout(timeoutId);
       }
+      if (checkIntervalId) {
+        clearInterval(checkIntervalId);
+      }
       document.body.style.paddingBottom = "";
     };
-  }, [atBottom, showFooter]);
+  }, [atBottom, showFooter, isVisible]);
 
   const handleClick = () => {
     setIsExpanded(!isExpanded);

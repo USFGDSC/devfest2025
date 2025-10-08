@@ -35,7 +35,7 @@ export default function ScheduleGrid({
           className="flex-1 border-r border-gray-200 last:border-r-0 relative bg-white"
         >
           {/* Events container */}
-          <div className="relative px-2" style={{ height: `${totalHeight}px` }}>
+          <div className="relative px-3" style={{ height: `${totalHeight}px` }}>
             {eventsByColumn[columnIndex].map((event) => (
               <EventCard
                 key={event.id}

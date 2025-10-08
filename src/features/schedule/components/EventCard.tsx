@@ -38,7 +38,7 @@ export default function EventCard({
   return (
     <div
       className={`
-        absolute w-full rounded-lg border-l-4 shadow-sm hover:shadow-md transition-all duration-200
+        absolute left-0 right-0 rounded-lg border-l-4 shadow-sm hover:shadow-md transition-all duration-200
         ${colors.bg} ${colors.border} ${colors.text}
         cursor-pointer group
         ${isCompact ? "px-2 py-1" : "px-3 py-2"}

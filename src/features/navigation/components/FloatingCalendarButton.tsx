@@ -24,9 +24,10 @@ export default function FloatingCalendarButton() {
       title: "DevFest USF 2025",
       details:
         "The world's largest community-driven tech conference, hosted by Google Developer Groups. Join us for a day of learning, networking, and innovation with cutting-edge technologies.",
-      location: "University of South Florida, Tampa, FL",
-      startDate: "20251201T090000Z", // December 1, 2025, 9:00 AM UTC
-      endDate: "20251201T180000Z", // December 1, 2025, 6:00 PM UTC
+      location:
+        "ENG - Engineering Building II, 4202 E Fowler Ave, Tampa, FL 33620",
+      startDate: "20251115T140000Z", // November 15, 2025, 9:00 AM EST
+      endDate: "20251115T220000Z", // November 15, 2025, 5:00 PM EST
     };
 
     const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
@@ -71,7 +72,7 @@ export default function FloatingCalendarButton() {
       <div className="absolute inset-0 rounded-full bg-blue-600 opacity-30 animate-ping group-hover:animate-none" />
 
       {/* Tooltip for better UX */}
-      <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap font-product-sans">
+      <div className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap font-product-sans pointer-events-none">
         Add to Calendar
         <div className="absolute top-1/2 -translate-y-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45" />
       </div>

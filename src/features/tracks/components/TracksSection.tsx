@@ -55,6 +55,7 @@ const tracks: Track[] = [
 export function TracksSection() {
   const [selectedTrack, setSelectedTrack] = useState<string>("build-with-ai");
   const [activeView, setActiveView] = useState<"about" | "speakers">("about");
+  const [showAllSpeakers, setShowAllSpeakers] = useState<boolean>(false);
 
   const selectedTrackData = tracks.find((track) => track.id === selectedTrack);
 
@@ -219,17 +220,39 @@ export function TracksSection() {
             {/* Track Selection for Speakers View */}
             <div className="flex justify-center mb-8">
               <div className="flex flex-wrap justify-center gap-3">
+                {/* Show All Button */}
+                <button
+                  onClick={() => {
+                    setShowAllSpeakers(true);
+                    setSelectedTrack(""); // Clear selected track when showing all
+                  }}
+                  className="px-4 py-2 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm transition-all duration-200"
+                  style={{
+                    backgroundColor: showAllSpeakers ? "#1a1a1a" : "#f5f5f5",
+                    color: showAllSpeakers ? "white" : "#333333",
+                  }}
+                >
+                  Show All
+                </button>
+
+                {/* Track Buttons */}
                 {tracks.map((track) => (
                   <button
                     key={track.id}
-                    onClick={() => setSelectedTrack(track.id)}
+                    onClick={() => {
+                      setSelectedTrack(track.id);
+                      setShowAllSpeakers(false);
+                    }}
                     className="px-4 py-2 rounded-full border-[1.5px] border-black font-bold font-product-sans text-sm transition-all duration-200"
                     style={{
                       backgroundColor:
-                        selectedTrack === track.id
+                        selectedTrack === track.id && !showAllSpeakers
                           ? track.selectedFill
                           : track.idleFill,
-                      color: selectedTrack === track.id ? "white" : "#333333",
+                      color:
+                        selectedTrack === track.id && !showAllSpeakers
+                          ? "white"
+                          : "#333333",
                     }}
                   >
                     {track.name}
@@ -239,10 +262,11 @@ export function TracksSection() {
             </div>
 
             {/* Speakers Grid */}
-            {selectedTrackData && (
+            {(selectedTrackData || showAllSpeakers) && (
               <SpeakersGrid
-                selectedTrack={selectedTrackData.name}
-                trackColor={selectedTrackData.selectedFill}
+                selectedTrack={selectedTrackData?.name || ""}
+                trackColor={selectedTrackData?.selectedFill || "#4285F4"}
+                showAll={showAllSpeakers}
               />
             )}
           </div>

@@ -115,7 +115,6 @@ export function Footer() {
         setIsVisible(false);
         setShowFooter(false);
         setIsExpanded(false);
-        document.body.style.paddingBottom = "";
 
         if (timeoutId) {
           clearTimeout(timeoutId);
@@ -135,23 +134,13 @@ export function Footer() {
         timeoutId = null;
       }
 
-      // Se chegou ao fundo e ainda não mostrou o footer
-      if (isAtBottom && !showFooter) {
-        // Esperar 500ms antes de mostrar
+      // Se chegou ao fundo, mostrar o footer (sempre que chegar no final)
+      if (isAtBottom) {
+        // Esperar 800ms antes de mostrar
         timeoutId = setTimeout(() => {
           setShowFooter(true);
-
-          // Adicionar espaço no body temporariamente
-          document.body.style.paddingBottom = "120px";
-
-          // Scroll suave para baixo para revelar o espaço
-          setTimeout(() => {
-            window.scrollBy({ top: 90, behavior: "smooth" });
-            setTimeout(() => {
-              setIsVisible(true);
-            }, 250);
-          }, 100);
-        }, 500);
+          setIsVisible(true);
+        }, 800);
       }
     };
 
@@ -172,7 +161,6 @@ export function Footer() {
       if (checkIntervalId) {
         clearInterval(checkIntervalId);
       }
-      document.body.style.paddingBottom = "";
     };
   }, [atBottom, showFooter, isVisible]);
 

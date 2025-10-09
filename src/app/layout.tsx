@@ -26,7 +26,7 @@ export const viewport: Viewport = {
   ],
 };
 
-// Comprehensive SEO metadata
+// SEO metadata
 export const metadata: Metadata = {
   title: {
     default: "DevFest USF 2025 - Google Developer Festival",
@@ -49,6 +49,17 @@ export const metadata: Metadata = {
     "workshops",
     "networking",
     "2025",
+    "Xiaoquan Kong",
+    "Laurence Svekis",
+    "Noble Ackerson",
+    "Gerardo Sanchez",
+    "Rich Foltak",
+    "Carlos Vasquez",
+    "James Gress",
+    "Modupe Ajala",
+    "Tampa",
+    "Florida",
+    "University of South Florida",
   ],
   authors: [{ name: "DevFest USF Organizing Team" }],
   creator: "DevFest USF",
@@ -66,10 +77,10 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://devfest-usf.com", // Replace with your actual domain
-    siteName: "DevFest USF 2024",
-    title: "DevFest USF 2024 - Google Developer Festival",
+    siteName: "DevFest USF 2025",
+    title: "DevFest USF 2025 - Google Developer Festival",
     description:
-      "Join DevFest USF 2024, the premier Google Developer Festival featuring cutting-edge tech talks, workshops, and networking opportunities.",
+      "Join DevFest USF 2025, the premier Google Developer Festival featuring cutting-edge tech talks, workshops, and networking opportunities.",
     images: [
       {
         url: "/Images/Hero-group.png", // Using your existing hero image
@@ -157,10 +168,54 @@ export default function RootLayout({
       availability: "https://schema.org/InStock",
       validFrom: "2025-10-01T00:00:00-05:00", // Replace with actual registration start date
     },
-    performer: {
-      "@type": "Organization",
-      name: "DevFest USF Speakers",
-    },
+    performer: [
+      {
+        "@type": "Person",
+        name: "Xiaoquan Kong",
+        url: "https://www.linkedin.com/in/xiaoquankong/",
+        sameAs: ["https://www.linkedin.com/in/xiaoquankong/"],
+      },
+      {
+        "@type": "Person",
+        name: "Laurence Svekis",
+      },
+      {
+        "@type": "Person",
+        name: "Noble Ackerson",
+        url: "https://www.linkedin.com/in/noblea/",
+        sameAs: ["https://www.linkedin.com/in/noblea/"],
+      },
+      {
+        "@type": "Person",
+        name: "Gerardo Sanchez",
+        url: "https://www.linkedin.com/in/gsans7/",
+        sameAs: ["https://www.linkedin.com/in/gsans7/"],
+      },
+      {
+        "@type": "Person",
+        name: "Rich Foltak",
+        url: "https://www.linkedin.com/in/richard-foltak/",
+        sameAs: ["https://www.linkedin.com/in/richard-foltak/"],
+      },
+      {
+        "@type": "Person",
+        name: "Carlos Vasquez",
+        url: "https://www.linkedin.com/in/juancvazquez/",
+        sameAs: ["https://www.linkedin.com/in/juancvazquez/"],
+      },
+      {
+        "@type": "Person",
+        name: "James Gress",
+        url: "https://www.linkedin.com/in/jamesgress/",
+        sameAs: ["https://www.linkedin.com/in/jamesgress/"],
+      },
+      {
+        "@type": "Person",
+        name: "Modupe Ajala",
+        url: "https://www.linkedin.com/in/modupeajala-3288/",
+        sameAs: ["https://www.linkedin.com/in/modupeajala-3288/"],
+      },
+    ],
   };
 
   return (

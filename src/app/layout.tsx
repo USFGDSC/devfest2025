@@ -69,21 +69,21 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://devfest-usf.com"), // Replace with your actual domain
+  metadataBase: new URL("https://devfest2025-eight.vercel.app"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://devfest-usf.com", // Replace with your actual domain
+    url: "https://devfest2025-eight.vercel.app",
     siteName: "DevFest USF 2025",
     title: "DevFest USF 2025 - Google Developer Festival",
     description:
       "Join DevFest USF 2025, the premier Google Developer Festival featuring cutting-edge tech talks, workshops, and networking opportunities.",
     images: [
       {
-        url: "/Images/Hero-group.png", // Using your existing hero image
+        url: "/Images/Hero-group.png",
         width: 1200,
         height: 630,
         alt: "DevFest USF 2025 - Google Developer Festival",
@@ -153,16 +153,16 @@ export default function RootLayout({
       },
     },
     image: [
-      "https://devfest-usf.com/Images/Hero-group.png", // Replace with your actual domain
+      "https://devfest2025-eight.vercel.app/Images/Hero-group.png",
     ],
     organizer: {
       "@type": "Organization",
       name: "Google Developer Groups USF",
-      url: "https://devfest-usf.com", // Replace with your actual domain
+      url: "https://devfest2025-eight.vercel.app",
     },
     offers: {
       "@type": "Offer",
-      url: "https://devfest-usf.com", // Replace with registration URL
+      url: "https://devfest2025-eight.vercel.app",
       price: "0",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
@@ -262,8 +262,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "DevFest USF",
-              url: "https://devfest-usf.com", // Replace with your actual domain
-              logo: "https://devfest-usf.com/logos/Logo Horizontal - Blue 1.svg", // Replace with your actual domain
+              url: "https://devfest2025-eight.vercel.app",
+              logo: "https://devfest2025-eight.vercel.app/logos/Logo Horizontal - Blue 1.svg",
               sameAs: [
                 "https://twitter.com/devfest_usf", // Replace with actual social media links
                 "https://linkedin.com/company/devfest-usf",

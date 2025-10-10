@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -152,9 +153,7 @@ export default function RootLayout({
         addressCountry: "US",
       },
     },
-    image: [
-      "https://devfest2025-eight.vercel.app/Images/Hero-group.png",
-    ],
+    image: ["https://devfest2025-eight.vercel.app/Images/Hero-group.png"],
     organizer: {
       "@type": "Organization",
       name: "Google Developer Groups USF",
@@ -272,6 +271,7 @@ export default function RootLayout({
             }),
           }}
         />
+        <SpeedInsights />
       </body>
     </html>
   );

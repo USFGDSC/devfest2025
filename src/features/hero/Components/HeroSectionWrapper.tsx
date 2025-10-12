@@ -98,7 +98,7 @@ export default function HeroSectionWrapper() {
                           ENG - Engineering Building II
                         </span>
                         <span className="block text-xs md:text-sm text-gray-600 font-product-sans group-hover:text-blue-500 transition-colors duration-200">
-                          4202 E Fowler Ave, Tampa, FL 33620
+                          4220 E Fowler Ave, Tampa, FL 33620
                         </span>
                       </button>
                     </div>

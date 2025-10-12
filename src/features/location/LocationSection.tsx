@@ -6,7 +6,7 @@ import { Button } from "@/ui";
 
 export default function LocationSection() {
   const handleGetDirections = () => {
-    const address = "4202 E Fowler Ave, Tampa, FL 33620";
+    const address = "4220 E Fowler Ave, Tampa, FL 33620";
     const encodedAddress = encodeURIComponent(address);
     window.open(
       `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`,
@@ -63,7 +63,7 @@ export default function LocationSection() {
                 <MapPin className="w-5 h-5 text-red-600 flex-shrink-0 mt-1" />
                 <div>
                   <p className="text-lg font-medium text-gray-900 font-product-sans">
-                    4202 E Fowler Ave
+                    4220 E Fowler Ave
                   </p>
                   <p className="text-lg text-gray-700 font-product-sans">
                     Tampa, FL 33620

@@ -130,7 +130,8 @@ export const scheduleData: ScheduleEvent[] = [
     "start_time": "2:00 PM",
     "end_time": "3:00 PM",
     "location": "Hall of Flags",
-    "speaker": "coming soon"
+    "speaker": "coming soon",
+    "column": 1
   },
   {
     "activity": "PD Table",

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -147,7 +147,7 @@ export default function RootLayout({
       name: "University of South Florida",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "4202 E Fowler Ave", // Replace with actual venue address
+        streetAddress: "4220 E Fowler Ave", // Replace with actual venue address
         addressLocality: "Tampa",
         addressRegion: "FL",
         postalCode: "33620",
@@ -273,7 +273,7 @@ export default function RootLayout({
           }}
         />
         <SpeedInsights />
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );

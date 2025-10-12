@@ -25,7 +25,7 @@ export default function FloatingCalendarButton() {
       details:
         "The world's largest community-driven tech conference, hosted by Google Developer Groups. Join us for a day of learning, networking, and innovation with cutting-edge technologies.",
       location:
-        "ENG - Engineering Building II, 4202 E Fowler Ave, Tampa, FL 33620",
+        "ENG - Engineering Building II, 4220 E Fowler Ave, Tampa, FL 33620",
       startDate: "20251115T140000Z", // November 15, 2025, 9:00 AM EST
       endDate: "20251115T220000Z", // November 15, 2025, 5:00 PM EST
     };

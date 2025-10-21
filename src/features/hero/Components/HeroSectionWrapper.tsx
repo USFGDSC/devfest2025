@@ -130,7 +130,13 @@ export default function HeroSectionWrapper() {
                 <Button
                   variant="outline"
                   className="font-bold text-gray-700 hover:bg-gray-50 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex-1"
-                  onClick={() => setShowSponsorModal(true)}
+                  onClick={() => {
+                    setShowSponsorModal(true);
+                    window.open(
+                      "https://drive.google.com/file/d/1M8PLzriSjUepPyXgo71g2H597f0MWwbJ/view?usp=drivesdk",
+                      "_blank"
+                    );
+                  }}
                 >
                   Become a Sponsor
                 </Button>

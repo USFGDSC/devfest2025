@@ -32,14 +32,6 @@ export const scheduleData: ScheduleEvent[] = [
     "column": 1
   },
   {
-    "activity": "Opening Ceremony (continued)",
-    "start_time": "10:00 AM",
-    "end_time": "11:00 AM",
-    "location": "ENB Hall of Flags",
-    "speaker": "coming soon",
-    "column": 1
-  },
-  {
     "activity": "Breakfast",
     "start_time": "9:00 AM",
     "end_time": "10:00 AM",

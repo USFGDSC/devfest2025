@@ -4,9 +4,10 @@ import { ScheduleEvent } from './types';
  * Schedule Events Data
  * 
  * COLUMN ASSIGNMENT:
- * - column: 0 = Left column (first column)
- * - column: 1 = Middle column (second column) 
- * - column: 2 = Right column (third column)
+ * - column: 0 = First column
+ * - column: 1 = Second column 
+ * - column: 2 = Third column
+ * - column: 3 = Fourth column
  * 
  * If 'column' is not specified, the event will be automatically assigned 
  * based on its location using the priority system.
@@ -41,45 +42,59 @@ export const scheduleData: ScheduleEvent[] = [
   },
   {
     "activity": "Speaker - Xiaoquan Kong (AI)",
-    "start_time": "10:15 AM",
-    "end_time": "11:15 AM",
-    "location": "Room 109",
-    "speaker": "Xiaoquan Kong"
-  },
-  {
-    "activity": "Speaker - Rich Foltak (E)",
-    "start_time": "10:15 AM",
-    "end_time": "11:15 AM",
+    "start_time": "11:30 AM",
+    "end_time": "12:30 PM",
     "location": "Room 116",
-    "speaker": "Rich Foltak"
+    "speaker": "Xiaoquan Kong",
+    "column": 3
   },
   {
-    "activity": "Speaker - James Gress (C)",
+    "activity": "PD Table: Resume Review",
+    "start_time": "10:00 AM",
+    "end_time": "12:30 PM",
+    "location": "Hall of Flags",
+    "speaker": "coming soon",
+    "column": 0
+  },
+  {
+    "activity": "Speaker - Richard Foltak (E)",
     "start_time": "10:15 AM",
     "end_time": "11:15 AM",
     "location": "Room 118",
-    "speaker": "James Gress"
+    "speaker": "Richard Foltak",
+    "column": 3
+  },
+  {
+    "activity": "Speaker - James Gress (C)",
+    "start_time": "2:00 PM",
+    "end_time": "3:00 PM",
+    "location": "Room 116",
+    "speaker": "James Gress",
+    "column": 3
   },
   {
     "activity": "Speaker - Laurence Svekis (AI)",
-    "start_time": "11:30 AM",
-    "end_time": "12:30 PM",
-    "location": "Room 109",
-    "speaker": "Laurence Svekis"
+    "start_time": "2:00 PM",
+    "end_time": "3:00 PM",
+    "location": "Room 118",
+    "speaker": "Laurence Svekis", 
+    "column": 2
   },
   {
     "activity": "Speaker - Gerardo Sanchez (E)",
     "start_time": "11:30 AM",
     "end_time": "12:30 PM",
-    "location": "Room 116",
-    "speaker": "Gerardo Sanchez"
+    "location": "Room 118",
+    "speaker": "Gerardo Sanchez",
+    "column": 2
   },
   {
     "activity": "Clubs, Research Labs, Start-ups",
     "start_time": "11:30 AM",
     "end_time": "12:30 PM",
     "location": "Hall of Flags",
-    "speaker": "coming soon"
+    "speaker": "coming soon",
+    "column": 1
   },
   {
     "activity": "Lunch",
@@ -98,10 +113,19 @@ export const scheduleData: ScheduleEvent[] = [
   },
   {
     "activity": "Speaker - Noble Ackerson (AI)",
-    "start_time": "2:00 PM",
-    "end_time": "3:00 PM",
-    "location": "Room 118",
-    "speaker": "Noble Ackerson"
+    "start_time": "10:15 AM",
+    "end_time": "11:15 AM",
+    "location": "Room 109",
+    "speaker": "Noble Ackerson",
+    "column": 1
+  },
+  {
+    "activity": "Speaker - Angela Rodriguez",
+    "start_time": "10:15 AM",
+    "end_time": "11:15 AM",
+    "location": "Room 116",
+    "speaker": "Angela Rodriguez",
+    "column": 2
   },
   {
     "activity": "Speaker - Carlos Vasquez (E)",
@@ -115,18 +139,11 @@ export const scheduleData: ScheduleEvent[] = [
     "start_time": "3:15 PM",
     "end_time": "4:15 PM",
     "location": "Room 116",
-    "speaker": "Modupe Ajala"
-  },
-  {
-    "activity": "PD Table",
-    "start_time": "2:00 PM",
-    "end_time": "3:00 PM",
-    "location": "Hall of Flags",
-    "speaker": "coming soon",
+    "speaker": "Modupe Ajala",
     "column": 1
   },
   {
-    "activity": "PD Table",
+    "activity": "PD Table: Game and Merch",
     "start_time": "3:15 PM",
     "end_time": "4:15 PM",
     "location": "Hall of Flags",
@@ -144,7 +161,16 @@ export const scheduleData: ScheduleEvent[] = [
     "start_time": "2:00 PM",
     "end_time": "3:00 PM",
     "location": "Hall of Flags",
-    "speaker": "coming soon"
+    "speaker": "coming soon",
+    "column": 1
+  },
+  {
+    "activity": "PD Table: Game and Merch (Black Jack card game, pickleball throwing, charades)",
+    "start_time": "2:00 PM",
+    "end_time": "3:00 PM",
+    "location": "Hall of Flags",
+    "speaker": "coming soon",
+    "column": 0
   },
   {
     "activity": "Closing Ceremony",

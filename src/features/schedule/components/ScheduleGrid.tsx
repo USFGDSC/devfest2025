@@ -33,9 +33,10 @@ export default function ScheduleGrid({
         <div
           key={columnIndex}
           className="flex-1 border-r border-gray-200 last:border-r-0 relative bg-white"
+          style={{ height: `${totalHeight}px` }}
         >
           {/* Events container */}
-          <div className="relative px-3" style={{ height: `${totalHeight}px` }}>
+          <div className="relative px-3 h-full">
             {eventsByColumn[columnIndex].map((event) => (
               <EventCard
                 key={event.id}
@@ -46,7 +47,10 @@ export default function ScheduleGrid({
           </div>
 
           {/* Grid lines for visual reference */}
-          <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ height: `${totalHeight}px` }}
+          >
             {Array.from({
               length: Math.ceil(totalHeight / (60 * pixelsPerMinute)),
             }).map((_, index) => (
@@ -54,7 +58,7 @@ export default function ScheduleGrid({
                 key={index}
                 className="absolute left-0 right-0 border-t border-gray-100"
                 style={{
-                  top: `${index * 60 * pixelsPerMinute}px`, // No offset needed without header
+                  top: `${index * 60 * pixelsPerMinute}px`,
                 }}
               />
             ))}

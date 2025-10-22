@@ -82,7 +82,7 @@ export function generateTimeSlots(startHour: number = 9, endHour: number = 17): 
 export function calculateEventPositions(events: ScheduleEvent[]): ProcessedEvent[] {
   const PIXELS_PER_MINUTE = 2; // 2 pixels per minute
   const START_TIME = 9 * 60; // 9:00 AM in minutes
-  const MAX_COLUMNS = 3; // Maximum number of columns to display
+  const MAX_COLUMNS = 4; // Maximum number of columns to display
   
   // Group events by location to determine columns (only for events without explicit column)
   const locationGroups = new Map<string, ScheduleEvent[]>();

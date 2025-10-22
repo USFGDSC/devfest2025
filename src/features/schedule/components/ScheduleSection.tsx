@@ -128,7 +128,7 @@ export default function ScheduleSection() {
                 <Timeline startHour={9} endHour={17} pixelsPerMinute={2} />
                 <ScheduleGrid
                   events={filteredEvents}
-                  columns={3}
+                  columns={4}
                   pixelsPerMinute={2}
                   totalHeight={totalHeight}
                 />

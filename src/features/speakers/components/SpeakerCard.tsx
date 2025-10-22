@@ -59,12 +59,12 @@ export function SpeakerCard({
             alt={speaker.name}
             width={80}
             height={80}
-            className="w-20 h-20 rounded-full border-[2px] border-black object-cover"
+            className="w-36 h-36 rounded-full border-[2px] border-black object-cover"
             onError={() => setImageError(true)}
           />
         ) : (
           <div
-            className="w-20 h-20 rounded-full border-[2px] border-black flex items-center justify-center font-bold text-white text-xl font-product-sans"
+            className="w-36 h-36 rounded-full border-[2px] border-black flex items-center justify-center font-bold text-white text-3xl font-product-sans"
             style={{ backgroundColor: trackColor }}
           >
             {speaker.name

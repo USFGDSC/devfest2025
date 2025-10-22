@@ -12,14 +12,14 @@ export const speakers: Speaker[] = [
     status: "Confirmed",
     linkedin: "https://www.linkedin.com/in/xiaoquankong/",
     category: "Build with AI",
-    image: "https://media.licdn.com/dms/image/v2/D5635AQElQF6dG8VUMA/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1726550638664?e=1760403600&v=beta&t=0J1ezQEUrjTkyR2hOD_k2zpAXNCg8wkiRyVwomcwGiM",
+    image: "https://media.licdn.com/dms/image/v2/D5635AQElQF6dG8VUMA/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1726550638664?e=1761703200&v=beta&t=6sIATn6oDVGU_EH9ayZi4hIxRmbIgRzJl91soOrF7Ws",
   },
   {
     name: "Laurence Svekis",
     status: "Confirmed",
-    linkedin: "1.LinkedIn",
+    linkedin: "https://www.linkedin.com/in/svekis/",
     category: "Build with AI",
-    image: "coming_soon.jpg",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQGSsiA5d_bRnA/profile-displayphoto-crop_800_800/B56ZiHVaaAG4AY-/0/1754617195523?e=1762992000&v=beta&t=UUKJl_qtVBuxAn1h2NC6O9a5RtqBfKtov2q4XSo-_wE",
   },
   {
     name: "Noble Ackerson",

@@ -1,9 +1,12 @@
+import { LucideIcon } from "lucide-react";
+
 export interface Stat {
   id: string;
   value: string;
   label: string;
   description: string;
-  icon: string;
+  icon: LucideIcon;
+  iconColor: string;
 }
 
 export interface YearStats {
@@ -12,6 +15,8 @@ export interface YearStats {
   stats: Stat[];
   highlights: string[];
 }
+
+import { Users, Mic2, BookOpen, Code2, Coffee, Star, Building2, Globe, Rocket } from "lucide-react";
 
 export const previousYearsStats: YearStats[] = [
   {
@@ -23,42 +28,48 @@ export const previousYearsStats: YearStats[] = [
         value: "500+",
         label: "Attendees",
         description: "Developers, students, and tech enthusiasts",
-        icon: "👥"
+        icon: Users,
+        iconColor: "#4285F4" // Blue
       },
       {
         id: "speakers",
         value: "25",
         label: "Expert Speakers",
         description: "Industry leaders and Google Developer Experts",
-        icon: "🎤"
+        icon: Mic2,
+        iconColor: "#EA4335" // Red
       },
       {
         id: "sessions",
         value: "18",
         label: "Sessions",
         description: "Technical talks, workshops, and panels",
-        icon: "📚"
+        icon: BookOpen,
+        iconColor: "#FBBC04" // Yellow
       },
       {
         id: "workshops",
         value: "8",
         label: "Hands-on Workshops",
         description: "Interactive coding and learning experiences",
-        icon: "💻"
+        icon: Code2,
+        iconColor: "#34A853" // Green
       },
       {
         id: "networking",
         value: "12hrs",
         label: "Networking Time",
         description: "Coffee breaks, lunch, and after-party",
-        icon: "☕"
+        icon: Coffee,
+        iconColor: "#4285F4" // Blue
       },
       {
         id: "satisfaction",
         value: "4.8/5",
         label: "Satisfaction Rate",
         description: "Based on post-event surveys",
-        icon: "⭐"
+        icon: Star,
+        iconColor: "#FBBC04" // Yellow
       }
     ],
     highlights: [
@@ -78,42 +89,48 @@ export const previousYearsStats: YearStats[] = [
         value: "350+",
         label: "Attendees",
         description: "Growing developer community",
-        icon: "👥"
+        icon: Users,
+        iconColor: "#4285F4" // Blue
       },
       {
         id: "speakers",
         value: "20",
         label: "Expert Speakers",
         description: "Cloud architects and developers",
-        icon: "🎤"
+        icon: Mic2,
+        iconColor: "#EA4335" // Red
       },
       {
         id: "sessions",
         value: "15",
         label: "Sessions",
         description: "Cloud computing and web development",
-        icon: "📚"
+        icon: BookOpen,
+        iconColor: "#FBBC04" // Yellow
       },
       {
         id: "companies",
         value: "40+",
         label: "Companies",
         description: "Represented by attendees",
-        icon: "🏢"
+        icon: Building2,
+        iconColor: "#34A853" // Green
       },
       {
         id: "countries",
         value: "8",
         label: "Countries",
         description: "International virtual participation",
-        icon: "🌍"
+        icon: Globe,
+        iconColor: "#4285F4" // Blue
       },
       {
         id: "projects",
         value: "25",
         label: "Demo Projects",
         description: "Showcased by participants",
-        icon: "🚀"
+        icon: Rocket,
+        iconColor: "#EA4335" // Red
       }
     ],
     highlights: [

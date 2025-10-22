@@ -36,7 +36,7 @@ export const speakers: Speaker[] = [
     image: "https://media.licdn.com/dms/image/v2/D4E03AQEb9D1W2FpM7g/profile-displayphoto-crop_800_800/B4EZhru0I4HEAI-/0/1754154091500?e=1762992000&v=beta&t=P3DOnxbHF49UaTheJ71ELX1F5teVZGiXE0tvkzdDlww",
   },
   {
-    name: "Rich Foltak",
+    name: "Richard Foltak",
     status: "Confirmed",
     linkedin: "https://www.linkedin.com/in/richard-foltak/",
     category: "Entrepreneurship",
@@ -50,6 +50,13 @@ export const speakers: Speaker[] = [
     image: "https://media.licdn.com/dms/image/v2/C4D03AQE01axUJ9mOmg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1621274116338?e=1762992000&v=beta&t=wCo4KnnyBNtbF75WYcn6pXzoTRo1zgf_2Ro_-CgRxJM",
   },
   {
+    name: "Angela Rodriguez",
+    status: "Confirmed",
+    linkedin: "https://www.linkedin.com/in/angiemarierodriguez/",
+    category: "Career Spotlight",
+    image: "https://media.licdn.com/dms/image/v2/D4E03AQHRKMTCGHThvQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1720733888544?e=1762992000&v=beta&t=olVmVR729K09LC97cEv_w2MEDahIdfj0ZqI0psDn6o0",
+  },
+  {
     name: "James Gress",
     status: "Confirmed",
     linkedin: "https://www.linkedin.com/in/jamesgress/",
@@ -58,7 +65,7 @@ export const speakers: Speaker[] = [
   },
   {
     name: "Modupe Ajala",
-    status: "Coming soon",
+    status: "Confirmed",
     linkedin: "https://www.linkedin.com/in/modupeajala-3288/",
     category: "Career Spotlight",
     image: "https://media.licdn.com/dms/image/v2/D4E03AQHeTY6SgiYmVQ/profile-displayphoto-scale_400_400/B4EZmTwxVfKUAg-/0/1759120661614?e=1762992000&v=beta&t=H5bEOAAPMecB8hXLfDSsaSa6GkLE3ZMDP5pp6ykmJ_Y",

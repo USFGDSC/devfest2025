@@ -35,7 +35,7 @@ export default function Home() {
 
       {/* Stats Section */}
 
-      {/* <StatsSection /> */}
+      <StatsSection />
 
       {/* Schedule Section */}
       <ScheduleSection />

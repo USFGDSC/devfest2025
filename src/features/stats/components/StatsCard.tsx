@@ -30,7 +30,16 @@ export function StatsCard({ stat, animationDelay = 0 }: StatsCardProps) {
     >
       {/* Icon */}
       <div className="text-center mb-4">
-        <div className="text-4xl mb-2">{stat.icon}</div>
+        <div
+          className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white border-2 mb-2"
+          style={{ borderColor: stat.iconColor }}
+        >
+          <stat.icon
+            size={32}
+            style={{ color: stat.iconColor }}
+            strokeWidth={1.5}
+          />
+        </div>
       </div>
 
       {/* Value */}

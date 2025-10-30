@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Users,
+  Mic2,
+  BookOpen,
+  Target,
+  TrendingUp,
+  RefreshCcw,
+} from "lucide-react";
 
 interface OverallStatsProps {
   stats: {
@@ -22,7 +30,8 @@ export function OverallStats({ stats }: OverallStatsProps) {
       value: stats.totalAttendees,
       label: "Total Attendees",
       description: "Across all DevFest Tampa Bay events",
-      icon: "👥",
+      icon: Users,
+      iconColor: "#4285F4",
       color: "from-blue-500 to-blue-600",
     },
     {
@@ -30,7 +39,8 @@ export function OverallStats({ stats }: OverallStatsProps) {
       value: stats.totalSpeakers,
       label: "Expert Speakers",
       description: "Industry leaders and Google Developer Experts",
-      icon: "🎤",
+      icon: Mic2,
+      iconColor: "#EA4335",
       color: "from-green-500 to-green-600",
     },
     {
@@ -38,7 +48,8 @@ export function OverallStats({ stats }: OverallStatsProps) {
       value: stats.totalSessions,
       label: "Total Sessions",
       description: "Technical talks, workshops, and panels",
-      icon: "📚",
+      icon: BookOpen,
+      iconColor: "#FBBC04",
       color: "from-yellow-500 to-yellow-600",
     },
     {
@@ -46,7 +57,8 @@ export function OverallStats({ stats }: OverallStatsProps) {
       value: stats.yearsRunning,
       label: "Years Running",
       description: "Building the Tampa Bay tech community",
-      icon: "🎯",
+      icon: Target,
+      iconColor: "#34A853",
       color: "from-purple-500 to-purple-600",
     },
     {
@@ -54,7 +66,8 @@ export function OverallStats({ stats }: OverallStatsProps) {
       value: stats.communityGrowth,
       label: "Community Growth",
       description: "Year-over-year attendance increase",
-      icon: "📈",
+      icon: TrendingUp,
+      iconColor: "#EA4335",
       color: "from-red-500 to-red-600",
     },
     {
@@ -62,13 +75,14 @@ export function OverallStats({ stats }: OverallStatsProps) {
       value: stats.returningAttendees,
       label: "Returning Attendees",
       description: "Community members who come back",
-      icon: "🔄",
+      icon: RefreshCcw,
+      iconColor: "#4285F4",
       color: "from-indigo-500 to-indigo-600",
     },
   ];
 
   return (
-    <div className="space-y-12">
+    <div>
       {/* Overall Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {statsData.map((stat, index) => (
@@ -100,7 +114,16 @@ export function OverallStats({ stats }: OverallStatsProps) {
             <div className="relative z-10">
               {/* Icon */}
               <div className="text-center mb-4">
-                <div className="text-5xl mb-2">{stat.icon}</div>
+                <div
+                  className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white border-2 mb-2"
+                  style={{ borderColor: stat.iconColor }}
+                >
+                  <stat.icon
+                    size={40}
+                    style={{ color: stat.iconColor }}
+                    strokeWidth={1.5}
+                  />
+                </div>
               </div>
 
               {/* Value */}
@@ -122,43 +145,6 @@ export function OverallStats({ stats }: OverallStatsProps) {
             </div>
           </div>
         ))}
-      </div>
-
-      {/* Community Impact Section */}
-      <div className="bg-white rounded-[20px] border-[1.5px] border-black p-8 shadow-sm">
-        <h3 className="text-2xl font-bold text-gray-900 font-product-sans mb-6 text-center">
-          Community Impact
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="text-3xl mb-2">🌟</div>
-            <h4 className="font-bold text-gray-900 font-product-sans mb-2">
-              Knowledge Sharing
-            </h4>
-            <p className="text-sm text-gray-600">
-              Fostering learning and collaboration in the Tampa Bay tech
-              ecosystem
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">🤝</div>
-            <h4 className="font-bold text-gray-900 font-product-sans mb-2">
-              Networking
-            </h4>
-            <p className="text-sm text-gray-600">
-              Connecting developers, entrepreneurs, and tech enthusiasts
-            </p>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">🚀</div>
-            <h4 className="font-bold text-gray-900 font-product-sans mb-2">
-              Innovation
-            </h4>
-            <p className="text-sm text-gray-600">
-              Inspiring new projects and technological breakthroughs
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );

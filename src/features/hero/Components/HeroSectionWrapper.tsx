@@ -117,7 +117,7 @@ export default function HeroSectionWrapper() {
               <div className="w-full mt-8 flex flex-col sm:flex-row flex-wrap sm:flex-nowrap justify-center items-center gap-3 sm:gap-4 md:gap-6 !px-6 sm:!px-10  sm:!px-12 max-w-screen-xl mx-auto">
                 <Button
                   variant="primary"
-                  className="ml-10 sm:ml-16 w-full sm:!w-72 !h-14 whitespace-nowrap font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+                  className="ml-10 w-full sm:!w-72 !h-14 whitespace-nowrap font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
                   onClick={() => {
                     window.open(
                       "https://bullsconnect.usf.edu/gdsc/rsvp_boot?id=1984399",

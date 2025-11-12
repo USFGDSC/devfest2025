@@ -114,10 +114,10 @@ export default function HeroSectionWrapper() {
               </div>
 
               {/* Action buttons */}
-              <div className="flex flex-row gap-3 sm:gap-4 md:gap-6 mt-8 md:mt-12">
+              <div className="mt-8 md:mt-12 flex flex-wrap sm:flex-nowrap justify-center items-center gap-3 sm:gap-4 md:gap-">
                 <Button
                   variant="primary"
-                  className="font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex-1"
+                  className="w-full sm:!w-72 !h-14 whitespace-nowrap font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
                   onClick={() => {
                     window.open(
                       "https://bullsconnect.usf.edu/gdsc/rsvp_boot?id=1984399",
@@ -129,7 +129,7 @@ export default function HeroSectionWrapper() {
                 </Button>
                 <Button
                   variant="outline"
-                  className="font-bold text-gray-700 hover:bg-gray-50 rounded-full shadow-md hover:shadow-lg transition-all duration-200 flex-1"
+                  className="w-full sm:!w-72 !h-14 whitespace-nowrap font-bold text-gray-700 hover:bg-gray-50 rounded-full shadow-md hover:shadow-lg transition-all duration-200"
                   onClick={() => {
                     setShowSponsorModal(true);
                     window.open(
@@ -139,6 +139,18 @@ export default function HeroSectionWrapper() {
                   }}
                 >
                   Become a Sponsor
+                </Button>
+                <Button
+                  variant="primary"
+                  className="w-full sm:!w-72 !h-14 whitespace-nowrap font-bold bg-blue-600 hover:bg-blue-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
+                  onClick={() => {
+                    window.open(
+                      "https://docs.google.com/forms/d/e/1FAIpQLScYldx6T_9Nuqv9uQe9Xu9cqWaLR1OtzO4kVHeWq-ohgayXSg/viewform",
+                      "_blank"
+                    );
+                  }}
+                >
+                  Upload your Resume
                 </Button>
               </div>
             </div>
